@@ -51,7 +51,8 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".NewSinisterActivity"></activity>
+        <activity android:name=".NewSinisterActivity" />
+        <activity android:name=".CamaraActivity"></activity>
     </application>
 
 </manifest>
