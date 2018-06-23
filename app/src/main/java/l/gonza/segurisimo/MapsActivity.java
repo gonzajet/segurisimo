@@ -191,7 +191,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }else{
                     Snackbar.make(getWindow().getDecorView().getRootView(),"nop", Snackbar.LENGTH_LONG).show();
                 }
-//                LatLng test = getLatLngPosition();
 
                 break;
             case R.id.buttonSiguiente:
@@ -214,10 +213,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     public void onSuccess(Location location) {
 
                         if (location != null) {
-//                            Snackbar.make(getWindow().getDecorView().getRootView(), "Place: " + location.getLatitude() + "long" + location.getLongitude(), Snackbar.LENGTH_LONG).show();
-                            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 
-//                            Snackbar.make(getWindow().getDecorView().getRootView(), latLng.toString(), Snackbar.LENGTH_LONG).show();
+                            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
                             setLatLngPosition(latLng);
 
                         } else {

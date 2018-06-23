@@ -310,6 +310,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         try {
             cursor.moveToFirst();
+            cursor.getI
+
             String id = cursor.getString(0);
             cursor.close();
             db.close();
