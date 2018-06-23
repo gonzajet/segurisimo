@@ -53,7 +53,7 @@
         android:layout_marginBottom="136dp"
         android:layout_marginStart="268dp"
         android:layout_marginTop="8dp"
-        android:text="Button"
+        android:text="Buscar"
         app:layout_constraintBottom_toTopOf="@+id/buttonSiguiente"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
