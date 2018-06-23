@@ -6,57 +6,171 @@
     android:layout_height="match_parent"
     tools:context=".NewSinisterActivity">
 
-    <Button
-        android:id="@+id/buttonSiguiente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="280dp"
-        android:layout_marginTop="444dp"
-        android:text="Siguiente"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
 
-    <EditText
-        android:id="@+id/editPatente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Patente"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
 
-    <EditText
-        android:id="@+id/editPoliza"
-        android:layout_width="214dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Poliza"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPatente" />
+            app:srcCompat="@drawable/principal4" />
 
-    <Button
-        android:id="@+id/buttonBuscar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="136dp"
-        android:layout_marginStart="268dp"
-        android:layout_marginTop="8dp"
-        android:text="Buscar"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSiguiente"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.642" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutPatente"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@color/colorBackground"
+            app:errorTextAppearance="@style/error_appearance"
+            app:hintEnabled="false">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/textInputEditTextPatente"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:background="#11000000"
+                android:drawableStart="@drawable/ic_action_add_caso"
+                android:hint="Patente"
+                android:maxLines="1"
+                android:textColorHint="@color/colorBackground"
+                android:textSize="14sp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutPoliza"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@color/colorBackground"
+            app:errorTextAppearance="@style/error_appearance"
+            app:hintEnabled="false">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/textInputEditTextPoliza"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:background="#11000000"
+                android:drawableStart="@drawable/ic_action_add_caso"
+                android:hint="Poliza"
+                android:maxLines="1"
+                android:textColorHint="@color/colorBackground"
+                android:textSize="14sp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/appCompatButtonBusqueda"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:drawableBottom="@drawable/ic_action_search"/>
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/textInputLayoutBody"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColorHint="@color/colorBackground"
+            app:errorTextAppearance="@style/error_appearance"
+            app:hintEnabled="false">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:clipToPadding="false"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/textInputEditTextNombre"
+                        android:layout_width="155dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:background="#11000000"
+                        android:hint="Nombre"
+                        android:textAlignment="center"
+                        android:textColorHint="@color/colorBackground"
+                        android:textSize="14sp" />
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/textInputEditTextDireccion"
+                        android:layout_width="155dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:background="#11000000"
+                        android:hint="Direccion"
+                        android:textAlignment="center"
+                        android:textColorHint="@color/colorBackground"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/textInputEditTextSeguro"
+                        android:layout_width="155dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:background="#11000000"
+                        android:hint="Seguro"
+                        android:textAlignment="center"
+                        android:textColorHint="@color/colorBackground"
+                        android:textSize="14sp" />
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/textInputEditTextTelefono"
+                        android:layout_width="155dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:background="#11000000"
+                        android:hint="Telefono"
+                        android:textAlignment="center"
+                        android:textColorHint="@color/colorBackground"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/appCompatButtonLogin"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:text="Siguiente" />
+
+            </LinearLayout>
+
+
+
+
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.v7.widget.LinearLayoutCompat>
 
 </android.support.constraint.ConstraintLayout>
