@@ -14,7 +14,7 @@ import model.User;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     // Database Name
     private static final String DATABASE_NAME = "UserManager.db";
@@ -31,6 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USER_SEGURO = "seguro";
     private static final String COLUMN_USER_TELEFONO = "telefono";
     private static final String COLUMN_USER_POLIZA = "poliza";
+    private static final String COLUMN_USER_DIRECCION = "direccion";
 
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -39,6 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COLUMN_USER_PASSWORD + " TEXT,"
             + COLUMN_USER_PATENTE + " TEXT,"
             + COLUMN_USER_SEGURO + " TEXT,"
+            + COLUMN_USER_DIRECCION + " TEXT,"
             + COLUMN_USER_TELEFONO + " INTEGER,"
             + COLUMN_USER_POLIZA + " INTEGER,"
             + COLUMN_USER_DNI + " INTEGER)";
@@ -310,7 +312,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         try {
             cursor.moveToFirst();
-            cursor.getI
 
             String id = cursor.getString(0);
             cursor.close();
@@ -320,5 +321,66 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return "";
         }
 
+    }
+
+    /**
+     * This method is to fetch all user and return the list of user records
+     *
+     * @return list
+     */
+
+    public User getUserForPatenteYPoliza(String patente, String poliza) {
+        // array of columns to fetch
+        String[] columns = {
+                COLUMN_USER_ID,
+                COLUMN_USER_EMAIL,
+                COLUMN_USER_NAME,
+                COLUMN_USER_PATENTE,
+                COLUMN_USER_SEGURO,
+                COLUMN_USER_TELEFONO,
+                COLUMN_USER_POLIZA,
+                COLUMN_USER_DIRECCION
+        };
+
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // query the user table
+        /**
+         * Here query function is used to fetch records from user table this function works like we use sql query.
+         * SQL query equivalent to this query function is
+         * SELECT user_id,user_name,user_email,user_password FROM user ORDER BY user_name;
+         */
+
+        String selection = COLUMN_USER_PATENTE + " = ?" + " AND " + COLUMN_USER_POLIZA + " = ?";
+
+        String[] selectionArgs = {patente, poliza};
+
+        Cursor cursor = db.query(TABLE_USER, //Table to query
+                columns,    //columns to return
+                selection,        //columns for the WHERE clause
+                selectionArgs,        //The values for the WHERE clause
+                null,       //group the rows
+                null,       //filter by row groups
+                null); //The sort order
+//        try {
+            User user = new User();
+            if (cursor.moveToFirst()) {
+                user.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_USER_ID))));
+                user.setName(cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)));
+                user.setEmail(cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)));
+                user.setPassword(cursor.getString(cursor.getColumnIndex(COLUMN_USER_PATENTE)));
+                user.setPassword(cursor.getString(cursor.getColumnIndex(COLUMN_USER_SEGURO)));
+                user.setPassword(cursor.getString(cursor.getColumnIndex(COLUMN_USER_TELEFONO)));
+                user.setPassword(cursor.getString(cursor.getColumnIndex(COLUMN_USER_POLIZA)));
+                user.setPassword(cursor.getString(cursor.getColumnIndex(COLUMN_USER_DIRECCION)));
+            }
+
+            cursor.close();
+            db.close();
+            return user;
+//        }catch (Exception e){
+//            return "";
+//        }
     }
 }

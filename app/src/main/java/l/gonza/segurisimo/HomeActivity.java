@@ -3,23 +3,28 @@ package l.gonza.segurisimo;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+
+import model.User;
+import sql.DatabaseHelper;
 
 import static l.gonza.segurisimo.R.id.CardViewCase;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private CardView caseCard, perfilCard, mapCard, fileCard;
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getSupportActionBar().hide();
-
+        databaseHelper = new DatabaseHelper(HomeActivity.this);
         //cards
         caseCard = findViewById(R.id.CardViewCase);
         perfilCard = findViewById(R.id.CardViewPerfil);
@@ -48,6 +53,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 editor.clear().apply();
                 launchActivity(LoginActivity.class);
                 finish();
+                break;
+            case R.id.CardViewFile:
+                User master = databaseHelper.getUserForPatenteYPoliza("aaa3002","98653218");
+                Snackbar.make(getWindow().getDecorView().getRootView(),Integer.toString(master.getId()), Snackbar.LENGTH_LONG).show();
                 break;
         }
     }
