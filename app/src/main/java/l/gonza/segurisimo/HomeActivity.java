@@ -54,10 +54,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 launchActivity(LoginActivity.class);
                 finish();
                 break;
-            case R.id.CardViewFile:
-                User master = databaseHelper.getUserForPatenteYPoliza("aaa3002","98653218");
-                Snackbar.make(getWindow().getDecorView().getRootView(),Integer.toString(master.getId()), Snackbar.LENGTH_LONG).show();
-                break;
         }
     }
 

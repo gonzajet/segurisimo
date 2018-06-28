@@ -52,7 +52,8 @@
         </provider>
 
         <activity android:name=".NewSinisterActivity" />
-        <activity android:name=".CamaraActivity"></activity>
+        <activity android:name=".CamaraActivity" />
+        <activity android:name=".ListaSiniestroActivity"></activity>
     </application>
 
 </manifest>

@@ -24,7 +24,7 @@
             app:title="Segurisimo"
             app:expandedTitleMarginStart="30dp"
             app:expandedTitleMarginEnd="64dp"
-            android:background="@drawable/auto">
+            android:background="@drawable/auto2">
             
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbarid"
