@@ -14,7 +14,7 @@ import model.User;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     // Database Version
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     // Database Name
     private static final String DATABASE_NAME = "UserManager.db";
@@ -32,6 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USER_TELEFONO = "telefono";
     private static final String COLUMN_USER_POLIZA = "poliza";
     private static final String COLUMN_USER_DIRECCION = "direccion";
+    private static final String COLUMN_USER_VALIDO = "valido";
 
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -41,6 +42,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COLUMN_USER_PATENTE + " TEXT,"
             + COLUMN_USER_SEGURO + " TEXT,"
             + COLUMN_USER_DIRECCION + " TEXT,"
+            + COLUMN_USER_VALIDO + " BOOLEAN,"
             + COLUMN_USER_TELEFONO + " INTEGER,"
             + COLUMN_USER_POLIZA + " INTEGER,"
             + COLUMN_USER_DNI + " INTEGER)";
@@ -106,11 +108,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 +COLUMN_USER_PATENTE+","
                 +COLUMN_USER_SEGURO+","
                 +COLUMN_USER_TELEFONO+","
+                +COLUMN_USER_DIRECCION+","
+                +COLUMN_USER_VALIDO+","
                 +COLUMN_USER_POLIZA+","
                 +COLUMN_USER_DNI+") "+
-                "VALUES ('Matias', '123', 'test@test.com', 'aaa000', 'credicoop', '42774756','37899555','12345')," +
-                "('Gonza', '123', 'test1@test.com', 'aaa001', 'lacaja', '42775566','98653215','54321')," +
-                "('Duznarito', '123', 'duznarito@test.com', 'aaa002', 'Pelon', '12345678','98653218','43210');"
+                "VALUES ('Matias', '123', 'test@test.com', 'aaa000', 'credicoop', '42774756','MAGARITA 122','1','123','12345')," +
+                "('Gonza', '123', 'test1@test.com', 'aaa001', 'lacaja', '42775566','ESMERALDA 123','1','321','54321')," +
+                "('Duznarito', '123', 'duznarito@test.com', 'aaa002', 'Pelon', '12345678','SIMPREVIVA 123','1','111','43210');"
         );
     }
 
@@ -140,6 +144,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_USER_NAME, user.getName());
         values.put(COLUMN_USER_EMAIL, user.getEmail());
         values.put(COLUMN_USER_PASSWORD, user.getPassword());
+        values.put(COLUMN_USER_VALIDO, "1");
+
+        // Inserting Row
+        db.insert(TABLE_USER, null, values);
+        db.close();
+    }
+
+    /**
+     * This method is to create user record
+     *
+     * @param user
+     */
+    public void addUserForSiniestro(User user) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_USER_NAME, user.getName());
+        values.put(COLUMN_USER_PATENTE, user.getPatente());
+        values.put(COLUMN_USER_POLIZA, user.getPoliza());
+        values.put(COLUMN_USER_SEGURO, user.getSeguro());
+        values.put(COLUMN_USER_TELEFONO, user.getTelefono());
+        values.put(COLUMN_USER_DIRECCION, user.getDireccion());
+        values.put(COLUMN_USER_VALIDO, "0");
+
 
         // Inserting Row
         db.insert(TABLE_USER, null, values);
@@ -339,7 +367,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_USER_SEGURO,
                 COLUMN_USER_TELEFONO,
                 COLUMN_USER_POLIZA,
-                COLUMN_USER_DIRECCION
+                COLUMN_USER_DIRECCION,
+                COLUMN_USER_VALIDO
         };
 
 
@@ -370,10 +399,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 user.setName(cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)));
                 user.setEmail(cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)));
                 user.setPassword(cursor.getString(cursor.getColumnIndex(COLUMN_USER_PATENTE)));
-                user.setPassword(cursor.getString(cursor.getColumnIndex(COLUMN_USER_SEGURO)));
-                user.setPassword(cursor.getString(cursor.getColumnIndex(COLUMN_USER_TELEFONO)));
-                user.setPassword(cursor.getString(cursor.getColumnIndex(COLUMN_USER_POLIZA)));
-                user.setPassword(cursor.getString(cursor.getColumnIndex(COLUMN_USER_DIRECCION)));
+                user.setSeguro(cursor.getString(cursor.getColumnIndex(COLUMN_USER_SEGURO)));
+                user.setTelefono(cursor.getString(cursor.getColumnIndex(COLUMN_USER_TELEFONO)));
+                user.setPoliza(cursor.getString(cursor.getColumnIndex(COLUMN_USER_POLIZA)));
+                user.setDireccion(cursor.getString(cursor.getColumnIndex(COLUMN_USER_DIRECCION)));
+                user.setValido(cursor.getInt(cursor.getColumnIndex(COLUMN_USER_VALIDO)));
             }
 
             cursor.close();

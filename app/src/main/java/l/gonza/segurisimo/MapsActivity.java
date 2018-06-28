@@ -218,7 +218,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             setLatLngPosition(latLng);
 
                         } else {
-                            Snackbar.make(getWindow().getDecorView().getRootView(), "Nada de nada", Snackbar.LENGTH_LONG).show();
+
                         }
                     }
                 });

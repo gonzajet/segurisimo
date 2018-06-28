@@ -155,7 +155,7 @@
                 </LinearLayout>
 
                 <android.support.v7.widget.AppCompatButton
-                    android:id="@+id/appCompatButtonLogin"
+                    android:id="@+id/appCompatButtonSiguiente"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
