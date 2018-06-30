@@ -55,7 +55,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.clear().apply();
                 launchActivity(LoginActivity.class);
-                finish();;
+                finish();
                 return true;
             case R.id.menu_settings:
                 Log.i("ActionBar", "Settings");
@@ -69,7 +69,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.CardViewMap:
-                launchActivity(MapsActivity.class);
+                launchActivity(CamaraActivity.class);
                 break;
             case R.id.CardViewCase:
                 launchActivity(NewSinisterActivity.class);

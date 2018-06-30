@@ -72,7 +72,10 @@ public class NewSinisterActivity extends AppCompatActivity implements View.OnCli
                 break;
             case R.id.appCompatButtonSiguiente:
                 if(isOk){
-                    startActivity( new Intent(getApplicationContext(),MapsActivity.class));
+                    User newUser = getUser();
+                    Intent intent  =new Intent(getApplicationContext(),MapsActivity.class);
+                    intent.putExtra("userId",newUser.getId());
+                    startActivity(intent);
                 }
 
     }
@@ -103,9 +106,7 @@ public class NewSinisterActivity extends AppCompatActivity implements View.OnCli
     }
 
     private User getUser(){
-//    private User getUser(String usuario,String poliza){
        return databaseHelper.getUserForPatenteYPoliza(textInputEditTextPatente.getText().toString().trim(),textInputEditTextPoliza.getText().toString().trim());
-//       return databaseHelper.getUserForPatenteYPoliza(textInputEditTextPatente.getText().toString().trim(),textInputEditTextPoliza.getText().toString().trim());
     }
 
     private void setEnableTextInput(boolean isEnable){

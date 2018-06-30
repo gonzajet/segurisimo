@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -35,6 +36,9 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import model.Siniestros;
+import sql.DatabaseHelper;
+
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
@@ -43,6 +47,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private Marker markerPosition;
     private FusedLocationProviderClient mFusedLocationClient;
+    private DatabaseHelper databaseHelper;
+
 
     public LatLng getLatLngPosition() {
         return LatLngPosition;
@@ -115,6 +121,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             buttonPosition.setEnabled(true);
         else
             buttonPosition.setEnabled(false);
+
+        databaseHelper = new DatabaseHelper(this);
     }
 
 
@@ -195,7 +203,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 break;
             case R.id.buttonSiguiente:
                 if(getSeguiente()){
-                    Snackbar.make(getWindow().getDecorView().getRootView(),"siguiente "+ getLatLngPosition().toString(), Snackbar.LENGTH_LONG).show();
+//                    Snackbar.make(getWindow().getDecorView().getRootView(),"siguiente "+ getLatLngPosition().toString(), Snackbar.LENGTH_LONG).show();
+                    Siniestros siniestro = getSiniestro();
+
+                    databaseHelper.addSiniestro(siniestro);
+                    Intent intent  =new Intent(getApplicationContext(),CamaraActivity.class);
+                    intent.putExtra("siniestroId", searchIdSiniestro(siniestro));
+                    startActivity(intent);
+
                 }else{
                     Snackbar.make(getWindow().getDecorView().getRootView(),"falta localizacion", Snackbar.LENGTH_LONG).show();
                 }
@@ -264,6 +279,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Toast.makeText(MapsActivity.this, "Permisos denegados", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public Siniestros getSiniestro(){
+
+        Integer valor = getIntent().getExtras().getInt("userId");
+
+        Siniestros siniestro = new Siniestros();
+
+        siniestro.setLat(getLatLngPosition().latitude);
+        siniestro.setLon(getLatLngPosition().longitude);
+        siniestro.setUserId(valor);
+
+        return siniestro;
+    }
+
+    public int searchIdSiniestro(Siniestros siniestro){
+     Integer id = databaseHelper.searchIdSiniestro(siniestro.getUserId(),siniestro.getLat(),siniestro.getLon());
+        return id;
+    }
+
+
 
 }
 
