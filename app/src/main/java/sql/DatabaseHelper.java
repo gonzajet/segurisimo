@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import model.Imangen;
+import model.Siniestros;
 import model.User;
 
 
@@ -172,6 +174,67 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Inserting Row
         db.insert(TABLE_USER, null, values);
         db.close();
+    }
+
+    /**
+     * This method is to create user record
+     *
+     * @param siniestros
+     */
+    public void addSiniestro(Siniestros siniestros) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_SINIESTRO_USER_ID, siniestros.getUserId());
+        values.put(COLUMN_SINIESTRO_ESTADO, "PENDIENTE");
+        values.put(COLUMN_SINIESTRO_LAT, siniestros.getLat());
+        values.put(COLUMN_SINIESTRO_LON, siniestros.getLon());
+        // Inserting Row
+        db.insert(TABLE_SINIESTRO, null, values);
+        db.close();
+    }
+
+    public void addImage(Imangen imagen) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_IMAGEN_PATH, imagen.getPath());
+        values.put(COLUMN_IMAGEN_SINIESTRO_ID, imagen.getSiniestro_id());
+        // Inserting Row
+        db.insert(TABLE_IMAGEN, null, values);
+        db.close();
+    }
+
+    public int searchIdSiniestro(int userId, double lat, double lon) {
+        // array of columns to fetch
+        String[] columns = {
+                COLUMN_SINIESTRO_ID
+        };
+        SQLiteDatabase db = this.getReadableDatabase();
+        // selection criteria
+        String selection = COLUMN_SINIESTRO_USER_ID + " = ?" + " AND " + COLUMN_SINIESTRO_LAT + " = ?" + " AND " + COLUMN_SINIESTRO_LON + " = ?";
+
+        // selection arguments
+        String[] selectionArgs = {String.valueOf(userId), String.valueOf(lat), String.valueOf(lon)};
+
+        Cursor cursor = db.query(TABLE_SINIESTRO, //Table to query
+                columns,                    //columns to return
+                selection,                  //columns for the WHERE clause
+                selectionArgs,              //The values for the WHERE clause
+                null,                       //group the rows
+                null,                       //filter by row groups
+                null);                      //The sort order
+
+        try {
+            cursor.moveToFirst();
+
+            Integer id = cursor.getInt(0);
+            cursor.close();
+            db.close();
+            return id;
+        }catch (Exception e){
+            return -1;
+        }
     }
 
     /**

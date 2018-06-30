@@ -2,7 +2,7 @@ package model;
 
 public class Siniestros {
 
-    private int id, user_id;
+    private int id, userId;
     private double lat,lon;
     private String estado;
 
@@ -14,12 +14,12 @@ public class Siniestros {
         this.id = id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public double getLat() {
