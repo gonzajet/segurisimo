@@ -75,11 +75,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 launchActivity(NewSinisterActivity.class);
                 break;
             case R.id.CardViewPerfil:
-                SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.clear().apply();
-                launchActivity(LoginActivity.class);
-                finish();
+                launchActivity(Calendario.class);
                 break;
         }
     }
