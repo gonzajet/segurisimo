@@ -71,9 +71,11 @@
                 android:id="@+id/appCompatButtonLogin"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimaryDark"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
                 android:text="Siguiente" />
         </LinearLayout>
 
