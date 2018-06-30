@@ -8,6 +8,10 @@ public class Siniestros {
         this.id = id;
     }
 
+    public Siniestros() {
+
+    }
+
     public int getUserId() {
         return userId;
     }
