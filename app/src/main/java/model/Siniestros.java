@@ -8,7 +8,15 @@ public class Siniestros {
         this.id = id;
     }
 
-    private int useraId;
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    private int userId;
     private double lat,lon;
     private String estado;
 
