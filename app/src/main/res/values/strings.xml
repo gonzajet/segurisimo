@@ -21,4 +21,9 @@
     <string name="text_title">Segurisimo ATR</string>
     <string name="siguiente">siguiente</string>
     <string name="title_activity_maps">maps</string>
+    <string name="nombre">Nombre:</string>
+    <string name="estado">Estado:</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

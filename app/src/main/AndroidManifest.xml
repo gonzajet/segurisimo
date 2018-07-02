@@ -55,8 +55,8 @@
 
         <activity android:name=".NewSinisterActivity" />
         <activity android:name=".CamaraActivity" />
-        <activity android:name=".ListaSiniestroActivity" />
-        <activity android:name=".Calendario"></activity>
+        <activity android:name=".Calendario" />
+        <activity android:name=".ListaSiniestroActivity"></activity>
     </application>
 
 </manifest>

@@ -69,7 +69,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.CardViewMap:
-                launchActivity(CamaraActivity.class);
+                launchActivity(ListaSiniestroActivity.class);
                 break;
             case R.id.CardViewCase:
                 launchActivity(NewSinisterActivity.class);
