@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.media.Image;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -353,6 +355,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return userList;
     }
 
+
+    public ArrayList<Imangen> getAllImagen(int siniestroId) {
+
+        ArrayList<Imangen> userList = new ArrayList<Imangen>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // query the user table
+        /**
+         * Here query function is used to fetch records from user table this function works like we use sql query.
+         * SQL query equivalent to this query function is
+         * SELECT user_id,user_name,user_email,user_password FROM user ORDER BY user_name;
+         */
+
+        String query = "Select path " +
+                "from imagen " +
+                "where siniestro_id = " + siniestroId;
+        Cursor cursor = db.rawQuery(query,null);
+
+        // Traversing through all rows and adding to list
+        while (cursor.moveToNext()) {
+            Imangen imagen = new Imangen();
+            imagen.setPath(cursor.getString(0));
+           ;
+            userList.add(imagen);
+        }
+        cursor.close();
+        db.close();
+
+        // return user list
+        return userList;
+    }
     /**
      * This method to update user record
      *

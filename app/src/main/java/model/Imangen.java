@@ -4,6 +4,13 @@ public class Imangen {
     private int id,siniestro_id;
     private String path,nombre;
 
+    public Imangen() {
+    }
+
+    public Imangen(String path) {
+        this.path = path;
+    }
+
     public int getId() {
         return id;
     }

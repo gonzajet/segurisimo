@@ -1,6 +1,8 @@
 package fragments;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,8 +12,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import l.gonza.segurisimo.R;
+import model.Imangen;
 import model.UserSiniestro;
+import sql.DatabaseHelper;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,7 +32,7 @@ import model.UserSiniestro;
  * Use the {@link DetalleSiniestroFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DetalleSiniestroFragment extends Fragment {
+public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCallback {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,6 +41,12 @@ public class DetalleSiniestroFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+    private GoogleMap mMap;
+    private Marker marker;
+    private LatLng ubicacion;
+    private DatabaseHelper databaseHelper;
 
     TextView textViewFechaYHora,textViewNombre,textViewPatente,textViewDireccion,textViewPoliza,textViewEmail,textViewTelefono;
     ImageView imageViewAccidente;
@@ -80,11 +97,30 @@ public class DetalleSiniestroFragment extends Fragment {
 
         textViewFechaYHora = vista.findViewById(R.id.textViewFechaYHora);
         textViewNombre = vista.findViewById(R.id.textViewNombre);
+        textViewPatente = vista.findViewById(R.id.textViewPatente);
+        textViewDireccion = vista.findViewById(R.id.textViewDireccion);
+        textViewPoliza = vista.findViewById(R.id.textViewPoliza);
+        textViewEmail = vista.findViewById(R.id.textViewEmail);
+        textViewTelefono = vista.findViewById(R.id.textViewTelefono);
+        imageViewAccidente = vista.findViewById(R.id.imageViewAccidente);
+
+        databaseHelper = new DatabaseHelper(getContext());
 
         if(objetoSiniestro != null){
             siniestro = (UserSiniestro) objetoSiniestro.getSerializable("objeto");
             textViewFechaYHora.setText((siniestro.getFecha()+" "+siniestro.getHora()));
             textViewNombre.setText(siniestro.getName());
+            textViewPatente.setText(siniestro.getPatente());
+            textViewDireccion.setText(siniestro.getDireccion());
+            textViewPoliza.setText(siniestro.getPoliza());
+            textViewEmail.setText(siniestro.getEmail());
+            textViewTelefono.setText(siniestro.getTelefono());
+            ubicacion = new LatLng(siniestro.getLat(),siniestro.getLon());
+
+            String path = databaseHelper.getAllImagen(siniestro.getId()).get(0).getPath();
+            Bitmap bitmap = BitmapFactory.decodeFile(path);
+            imageViewAccidente.setImageBitmap(bitmap);
+
         }
 
         return vista;
@@ -112,6 +148,13 @@ public class DetalleSiniestroFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(ubicacion));
+        marker = mMap.addMarker(new MarkerOptions().position(ubicacion).draggable(true).title("Accidente").snippet("En este lugar ocurrio un siniestro"));
     }
 
     /**
