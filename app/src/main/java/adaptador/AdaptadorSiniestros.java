@@ -35,7 +35,7 @@ public class AdaptadorSiniestros extends RecyclerView.Adapter<AdaptadorSiniestro
 
     @Override
     public void onBindViewHolder(@NonNull SiniestrosViewHolder holder, int position) {
-        holder.textViewNombre.setText(listaUsuariosSiniestro.get(position).getNombre());
+        holder.textViewNombre.setText(listaUsuariosSiniestro.get(position).getName());
         holder.textViewEstado.setText(listaUsuariosSiniestro.get(position).getEstado());
     }
 

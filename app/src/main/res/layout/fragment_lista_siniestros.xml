@@ -38,7 +38,6 @@
             android:drawableStart="@drawable/ic_action_add_caso"
             android:hint="@string/filtro_por_patente"
             android:maxLines="1"
-
             android:textColorHint="@color/colorBackground"
             android:textSize="14sp" />
 

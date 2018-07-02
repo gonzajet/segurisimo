@@ -123,6 +123,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             buttonPosition.setEnabled(false);
 
         databaseHelper = new DatabaseHelper(this);
+
+        String tiempo = getIntent().getExtras().getString("tiempo");
+        String fecha = getIntent().getExtras().getString("fecha");
+        String test = getIntent().getExtras().getString("test");
+
+        Toast.makeText(this,test + " " + fecha,Toast.LENGTH_LONG).show();
     }
 
 
@@ -283,12 +289,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public Siniestros getSiniestro(){
 
         Integer valor = getIntent().getExtras().getInt("userId");
+        String tiempo = getIntent().getExtras().getString("tiempo");
+        String fecha = getIntent().getExtras().getString("fecha");
+
+
 
         Siniestros siniestro = new Siniestros();
 
         siniestro.setLat(getLatLngPosition().latitude);
         siniestro.setLon(getLatLngPosition().longitude);
         siniestro.setUserId(valor);
+        siniestro.setHora(tiempo);
+        siniestro.setFecha(fecha);
 
         return siniestro;
     }

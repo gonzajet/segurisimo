@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import adaptador.AdaptadorSiniestros;
 import interfaces.IComunicaFragments;
 import l.gonza.segurisimo.R;
 import model.UserSiniestro;
+import sql.DatabaseHelper;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,7 +29,7 @@ import model.UserSiniestro;
  * Use the {@link ListaSiniestrosFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListaSiniestrosFragment extends Fragment {
+public class ListaSiniestrosFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -44,6 +46,10 @@ public class ListaSiniestrosFragment extends Fragment {
 
     Activity activity;
     IComunicaFragments interfaceComunicaFragment;
+    AppCompatButton appCompatButtonBusqueda;
+
+    private DatabaseHelper databaseHelper;
+
 
     public ListaSiniestrosFragment() {
         // Required empty public constructor
@@ -81,32 +87,21 @@ public class ListaSiniestrosFragment extends Fragment {
                              Bundle savedInstanceState) {
         View vista =inflater.inflate(R.layout.fragment_lista_siniestros, container, false);
 
+        appCompatButtonBusqueda = vista.findViewById(R.id.appCompatButtonBusqueda);
+        appCompatButtonBusqueda.setOnClickListener(this);
+        databaseHelper = new DatabaseHelper(getContext());
+
+
         listaUsuariosSiniestro = new ArrayList<>();
         recyclerUsuariosSiniestro = vista.findViewById(R.id.recyclerId);
         recyclerUsuariosSiniestro.setLayoutManager(new LinearLayoutManager(getContext()));
         llenarLista();
-        AdaptadorSiniestros adapter = new AdaptadorSiniestros(listaUsuariosSiniestro);
-
-        adapter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(),"Seleccion: "+listaUsuariosSiniestro.get(recyclerUsuariosSiniestro.getChildAdapterPosition(v)).getNombre(),Toast.LENGTH_LONG ).show();
-
-                interfaceComunicaFragment.enviarPersonaje(listaUsuariosSiniestro.get(recyclerUsuariosSiniestro.getChildAdapterPosition(v)));
-            }
-        });
-        recyclerUsuariosSiniestro.setAdapter(adapter);
-
-
-
+        crearListaView();
         return vista;
     }
 
     private void llenarLista() {
-        listaUsuariosSiniestro.add(new UserSiniestro(1,"Pedro","pendiente","test"));
-        listaUsuariosSiniestro.add(new UserSiniestro(2,"Carlos","revicion","test"));
-        listaUsuariosSiniestro.add(new UserSiniestro(3,"Tete","completa","test"));
-        listaUsuariosSiniestro.add(new UserSiniestro(4,"Duzranito","pendiente","test"));
+        listaUsuariosSiniestro = databaseHelper.getAllSiniestros();
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -139,6 +134,16 @@ public class ListaSiniestrosFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.appCompatButtonBusqueda:
+
+                break;
+
+        }
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -152,5 +157,20 @@ public class ListaSiniestrosFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public void crearListaView(){
+        AdaptadorSiniestros adapter = new AdaptadorSiniestros(listaUsuariosSiniestro);
+
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                        Toast.makeText(getContext(),"Seleccion: "+listaUsuariosSiniestro.get(recyclerUsuariosSiniestro.getChildAdapterPosition(v)).getName(),Toast.LENGTH_LONG ).show();
+
+                interfaceComunicaFragment.enviarPersonaje(listaUsuariosSiniestro.get(recyclerUsuariosSiniestro.getChildAdapterPosition(v)));
+            }
+        });
+        recyclerUsuariosSiniestro.setAdapter(adapter);
+
     }
 }

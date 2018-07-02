@@ -28,7 +28,7 @@
             />
 
         <TextView
-            android:id="@+id/TextViewFechaYHora"
+            android:id="@+id/textViewFechaYHora"
             android:layout_width="200dp"
             android:layout_height="30dp"
             android:text="@string/fecha_del_accidente"
@@ -54,6 +54,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/textViewNombre"
                 android:layout_width="160dp"
                 android:layout_height="40dp"
                 android:background="#11000000"
@@ -62,6 +63,7 @@
                 android:textAlignment="center"/>
 
             <TextView
+                android:id="@+id/textViewPatente"
                 android:layout_width="160dp"
                 android:layout_height="40dp"
                 android:background="#11000000"
@@ -79,6 +81,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/textViewDireccion"
                 android:layout_width="160dp"
                 android:layout_height="40dp"
                 android:background="#11000000"
@@ -87,6 +90,7 @@
                 android:textAlignment="center"/>
 
             <TextView
+                android:id="@+id/textViewPoliza"
                 android:layout_width="160dp"
                 android:layout_height="40dp"
                 android:background="#11000000"
@@ -106,6 +110,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/textViewEmail"
                     android:layout_width="160dp"
                     android:layout_height="40dp"
                     android:background="#11000000"
@@ -114,6 +119,7 @@
                     android:textAlignment="center"/>
 
                 <TextView
+                    android:id="@+id/textViewTelefono"
                     android:layout_width="160dp"
                     android:layout_height="40dp"
                     android:background="#11000000"
@@ -145,6 +151,7 @@
             />
 
         <ImageView
+            android:id="@+id/imageViewAccidente"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="5dp"
