@@ -6,18 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Calendario">
 
+
+
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/titlulo_pickers"
-        android:textSize="24sp"
+        android:text="Por favor ingrese la fecha y la hora de cuando sucedio el accidente"
+        android:textSize="15sp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="10dp"
+        android:fontFamily="sans-serif"
+        android:layout_marginEnd="8dp"
         app:layout_constraintHorizontal_bias="0.025" />
 
 
@@ -49,13 +51,13 @@
         android:id="@+id/ib_obtener_fecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_action_calendar"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/et_mostrar_fecha_picker"
         android:layout_marginLeft="8dp"
-        app:layout_constraintHorizontal_bias="0.505"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="32dp"
+        android:src="@drawable/ic_action_calendar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toRightOf="@+id/et_mostrar_fecha_picker"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:ignore="ContentDescription" />
 
@@ -63,14 +65,28 @@
         android:id="@+id/ib_obtener_hora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_action_time"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="32dp"
-        app:layout_constraintTop_toBottomOf="@+id/et_mostrar_fecha_picker"
-        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_action_time"
+        app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintLeft_toRightOf="@+id/et_mostrar_hora_picker"
-        android:layout_marginStart="8dp"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_mostrar_fecha_picker"
         tools:ignore="ContentDescription" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/appCompatButtonSiguiente"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Siguiente"
+        app:layout_constraintTop_toBottomOf="@+id/et_mostrar_hora_picker"
+        />
+
+
+
 
 </android.support.constraint.ConstraintLayout>
