@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
@@ -43,6 +44,7 @@ public class ListaSiniestrosFragment extends Fragment implements View.OnClickLis
 
     ArrayList<UserSiniestro> listaUsuariosSiniestro;
     RecyclerView recyclerUsuariosSiniestro;
+    TextInputEditText textInputEditTextFiltro,textInputEditTextFiltro2;
 
     Activity activity;
     IComunicaFragments interfaceComunicaFragment;
@@ -88,6 +90,8 @@ public class ListaSiniestrosFragment extends Fragment implements View.OnClickLis
         View vista =inflater.inflate(R.layout.fragment_lista_siniestros, container, false);
 
         appCompatButtonBusqueda = vista.findViewById(R.id.appCompatButtonBusqueda);
+        textInputEditTextFiltro = vista.findViewById(R.id.textInputEditTextFiltro);
+        textInputEditTextFiltro2 = vista.findViewById(R.id.textInputEditTextFiltro2);
         appCompatButtonBusqueda.setOnClickListener(this);
         databaseHelper = new DatabaseHelper(getContext());
 
@@ -102,6 +106,10 @@ public class ListaSiniestrosFragment extends Fragment implements View.OnClickLis
 
     private void llenarLista() {
         listaUsuariosSiniestro = databaseHelper.getAllSiniestros();
+    }
+
+    private void buscar() {
+        listaUsuariosSiniestro = databaseHelper.getAllSiniestros(textInputEditTextFiltro.getText().toString().trim(),textInputEditTextFiltro2.getText().toString().trim());
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -138,7 +146,10 @@ public class ListaSiniestrosFragment extends Fragment implements View.OnClickLis
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.appCompatButtonBusqueda:
+                Toast.makeText(getContext(),"Buscando:",Toast.LENGTH_LONG ).show();
 
+                buscar();
+                crearListaView();
                 break;
 
         }

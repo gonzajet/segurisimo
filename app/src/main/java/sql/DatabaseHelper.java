@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.media.Image;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -350,6 +351,79 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         db.close();
+
+        // return user list
+        return userList;
+    }
+
+    public ArrayList<UserSiniestro> getAllSiniestros(String patente,String estado) {
+
+        ArrayList<UserSiniestro> userList = new ArrayList<UserSiniestro>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // query the user table
+        /**
+         * Here query function is used to fetch records from user table this function works like we use sql query.
+         * SQL query equivalent to this query function is
+         * SELECT user_id,user_name,user_email,user_password FROM user ORDER BY user_name;
+         */
+        Log.i("test",patente);
+        Log.i("test",estado);
+        String query = "Select siniestro.id," +
+                "siniestro.lat," +
+                "siniestro.lon," +
+                "siniestro.estado," +
+                "siniestro.fecha," +
+                "siniestro.hora," +
+                "siniestro.user_id," +
+                "user.name," +
+                "user.email," +
+                "user.patente," +
+                "user.direccion," +
+                "user.telefono," +
+                "user.poliza " +
+                "from siniestro " +
+                "left join user on siniestro.user_id = user.user_id";
+
+        if(!patente.isEmpty() || !estado.isEmpty()){
+            query = query + " where ";
+            if(!patente.isEmpty()){
+                query = query + " user.patente = \""+patente+"\"";
+            }
+            if(!patente.isEmpty() && !estado.isEmpty()){
+                query = query + " and ";
+            }
+            if(!estado.isEmpty()){
+                query = query + " siniestro.estado = \""+ estado+"\"";
+            }
+        }
+        
+        Cursor cursor = db.rawQuery(query,null);
+        try {
+        // Traversing through all rows and adding to list
+        while (cursor.moveToNext()) {
+            UserSiniestro siniestro = new UserSiniestro();
+            siniestro.setId(cursor.getInt(0));
+            siniestro.setLat(cursor.getDouble(1));
+            siniestro.setLon(cursor.getDouble(2));
+            siniestro.setEstado(cursor.getString(3));
+            siniestro.setFecha(cursor.getString(4));
+            siniestro.setHora(cursor.getString(5));
+            siniestro.setUser_id(cursor.getInt(6));
+            siniestro.setName(cursor.getString(7));
+            siniestro.setEmail(cursor.getString(8));
+            siniestro.setPatente(cursor.getString(9));
+            siniestro.setDireccion(cursor.getString(10));
+            siniestro.setTelefono(cursor.getString(11));
+            siniestro.setPoliza(cursor.getString(12));
+            userList.add(siniestro);
+        }
+        cursor.close();
+        db.close();
+        }catch (Exception e){
+            return userList;
+        }
 
         // return user list
         return userList;
