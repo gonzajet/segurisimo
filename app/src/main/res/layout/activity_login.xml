@@ -36,12 +36,12 @@
                 android:layout_width="280dp"
                 android:layout_height="50dp"
                 android:background="#11000000"
-                android:drawableLeft="@drawable/ic_action_user"
-                android:hint="Username"
+                android:drawableStart="@drawable/ic_action_user"
+                android:hint="@string/username"
                 android:maxLines="1"
                 android:textColorHint="@color/colorBackground"
 
-                android:textSize="14dp" />
+                android:textSize="14sp" />
         </android.support.design.widget.TextInputLayout>
 
 
@@ -63,11 +63,11 @@
                 android:maxLines="1"
                 android:layout_marginTop="30dp"
                 android:background="#11000000"
-                android:drawableLeft="@drawable/ic_action_pass"
+                android:drawableStart="@drawable/ic_action_pass"
                 android:fontFamily="sans-serif-smallcaps"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:inputType="textPassword"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton
@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
             android:background="@color/colorPrimaryDark"
-            android:text="Login" />
+            android:text="@string/login" />
 
 
         <android.support.v7.widget.AppCompatTextView
@@ -88,7 +88,7 @@
             android:layout_marginTop="30dp"
             android:gravity="center"
             android:textColor="@color/colorBackground"
-            android:text="No tenes cuenta? Registrate" />
+            android:text="@string/register" />
 
 
 

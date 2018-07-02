@@ -71,7 +71,6 @@ public class DetalleSiniestroFragment extends Fragment {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_detalle_siniestro, container, false);
 
-        textDescripcion = vista.findViewById(R.id.test);
 
         Bundle objetoSiniestro = getArguments();
 

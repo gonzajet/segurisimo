@@ -75,7 +75,7 @@
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
                             android:layout_marginTop="10dp"
-                            android:text="Crear siniestro"/>
+                            android:text="@string/crear_siniestro"/>
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -85,59 +85,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Registre un accidente"
+                            android:text="@string/registre_un_accidente"
                             android:padding="5dp"
                             android:textColor="@android:color/darker_gray"/>
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
-                <android.support.v7.widget.CardView
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:id="@+id/CardViewPerfil"
-                    android:clickable="true"
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
-                    android:layout_margin="10dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:background="@drawable/cerclebackgroundpink"
-                            android:src="@drawable/ic_action_user"
-                            android:padding="10dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:layout_marginTop="10dp"
-                            android:text="Perfil"/>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/lightgray"
-                            android:layout_margin="10dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Vea datos sobre su perfil"
-                            android:padding="5dp"
-                            android:textColor="@android:color/darker_gray"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-            </LinearLayout>
-            <LinearLayout
-                android:clipToPadding="false"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
                 <android.support.v7.widget.CardView
                     android:foreground="?android:attr/selectableItemBackground"
                     android:id="@+id/CardViewMap"
@@ -154,14 +107,14 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:background="@drawable/cerclebackgroundgreen"
-                            android:src="@drawable/ic_action_user"
+                            android:src="@drawable/ic_action_add_caso"
                             android:padding="10dp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
                             android:layout_marginTop="10dp"
-                            android:text="Siniestros cargados"/>
+                            android:text="@string/siniestros_cargados"/>
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -171,18 +124,29 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Se listan todos sus siniestros cargados"
+                            android:text="@string/lista_siniestros"
                             android:padding="5dp"
-                            android:textColor="@android:color/darker_gray"/>
+                            android:textColor="@android:color/darker_gray"
+                            />
 
                     </LinearLayout>
 
                 </android.support.v7.widget.CardView>
 
+
+            </LinearLayout>
+            <LinearLayout
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
                 <android.support.v7.widget.CardView
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    android:id="@+id/CardViewFile"
+                    android:id="@+id/CardViewStart"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_margin="10dp">
@@ -198,13 +162,13 @@
                             android:layout_height="64dp"
                             android:background="@drawable/cerclebackgroundyello"
                             android:padding="10dp"
-                            android:src="@drawable/ic_action_add_attach" />
+                            android:src="@drawable/ic_action_grua" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Llamar grua"
+                            android:text="@string/llamar_grua"
                             android:textStyle="bold" />
 
                         <View
@@ -218,7 +182,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:padding="5dp"
-                            android:text="Haga click para llamar a emergencias y pedir su grua"
+                            android:text="@string/click_grua"
                             android:textColor="@android:color/darker_gray" />
 
                     </LinearLayout>

@@ -1,12 +1,42 @@
 <resources>
     <string name="app_name">Segurisimo</string>
-    <string name="text_accounts">All Accounts</string>
-    <string name="hint_name">Nombre</string>
-    <string name="hint_email">Email</string>
-    <string name="hint_password">Contraseña</string>
-    <string name="hint_confirm_password">Confirmar contraseña</string>
-    <string name="text_login">Login</string>
+    <string name="Ingrese_fecha_hora">Por favor ingrese la fecha y la hora de cuando sucedio el accidente</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="galeria">Galeria</string>
+    <string name="camara">Camara</string>
+    <string name="crear_siniestro">Crear siniestro</string>
+    <string name="registre_un_accidente">Registre un accidente</string>
+    <string name="siniestros_cargados">Siniestros cargados</string>
+    <string name="lista_siniestros">Se listan todos sus siniestros cargados</string>
+    <string name="llamar_grua">Llamar grua</string>
+    <string name="formato_fecha">dd/mm/yyyy</string>
+    <string name="formato_hora">hh:mm</string>
+    <string name="click_grua">Haga click para pedir una grua</string>
+    <string name="username">Username</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Login</string>
+    <string name="register">No tenes cuenta? Registrate</string>
+    <string name="patente">Patente</string>
+    <string name="poliza">Poliza</string>
+    <string name="nombre">Nombre</string>
+    <string name="direccion">Direccion</string>
+    <string name="seguro">Seguro</string>
+    <string name="telefono">Telefono</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirmar contraseña</string>
     <string name="text_register">Register</string>
+    <string name="eres_miembro">Ya eres miembro? Login</string>
+    <string name="datos">Datos</string>
+    <string name="fecha_del_accidente">Fecha del accidente</string>
+    <string name="fotos_del_accidente">Fotos del accidente</string>
+    <string name="ubicacion">Ubicacion</string>
+    <string name="filtro_por_patente">Filtro por patente</string>
+    <string name="filtro_por_estado">Filtro por estado</string>
+
+
+
+
+
     <string name="error_message_name">Ingresa el nombre completo</string>
     <string name="error_message_email">Ingrese un mail valido</string>
     <string name="error_message_password">Ingresa una contraseña</string>
@@ -17,17 +47,13 @@
     <string name="error_password_match">Las contraseñas no coinciden</string>
     <string name="error_valid_email_password">Contraseña o email invalido</string>
     <string name="action_settings">Settings</string>
-    <string name="text_hello">Hello,</string>
     <string name="text_title">Segurisimo ATR</string>
-    <string name="siguiente">siguiente</string>
+
     <string name="title_activity_maps">maps</string>
-    <string name="nombre">Nombre:</string>
+
     <string name="estado">Estado:</string>
     <string name="titlulo_pickers">Obtener fecha y hora</string>
-    <string name="formato_fecha">dd/mm/yyyy</string>
-    <string name="formato_hora">hh:mm</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="por_favor_ingrese_la_fecha_y_la_hora_de_cuando_sucedio_el_accidente">Por favor ingrese la fecha y la hora de cuando sucedio el accidente</string>
+
+
 </resources>

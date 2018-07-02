@@ -34,12 +34,12 @@
                 android:layout_width="280dp"
                 android:layout_height="50dp"
                 android:background="#11000000"
-                android:hint="@string/hint_name"
+                android:hint="@string/nombre"
                 android:layout_gravity="center"
-                android:drawableLeft="@drawable/ic_action_user"
+                android:drawableStart="@drawable/ic_action_user"
                 android:layout_alignParentEnd="true"
                 android:inputType="text"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:maxLines="1"
                 android:textColor="@color/colorBackground"
                 />
@@ -57,7 +57,7 @@
                 android:id="@+id/textInputEditTextEmail"
                 android:layout_width="280dp"
                 android:layout_height="50dp"
-                android:hint="@string/hint_email"
+                android:hint="@string/email"
                 android:inputType="text"
                 android:drawableLeft="@drawable/ic_action_email"
                 android:background="#11000000"
@@ -80,7 +80,7 @@
                 android:layout_width="280dp"
                 android:layout_height="50dp"
                 android:background="#11000000"
-                android:hint="@string/hint_password"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 android:drawableLeft="@drawable/ic_action_pass"
                 android:layout_gravity="center"
@@ -103,11 +103,11 @@
                 android:layout_width="280dp"
                 android:layout_height="50dp"
                 android:background="#11000000"
-                android:hint="@string/hint_confirm_password"
-                android:drawableLeft="@drawable/ic_action_pass"
+                android:hint="@string/confirm_password"
+                android:drawableStart="@drawable/ic_action_pass"
                 android:layout_gravity="center"
                 android:inputType="textPassword"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:maxLines="1"/>
 
         </android.support.design.widget.TextInputLayout>
@@ -126,9 +126,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="Ya eres miembro? Login"
+            android:text="@string/eres_miembro"
 
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textColor="@color/colorBackground"/>
     </android.support.v7.widget.LinearLayoutCompat>
 

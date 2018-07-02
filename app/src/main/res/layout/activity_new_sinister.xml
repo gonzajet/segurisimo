@@ -37,7 +37,7 @@
                 android:layout_height="50dp"
                 android:background="#11000000"
                 android:drawableStart="@drawable/ic_action_add_caso"
-                android:hint="Patente"
+                android:hint="@string/patente"
                 android:maxLines="1"
                 android:textColorHint="@color/colorBackground"
                 android:textSize="14sp" />
@@ -61,7 +61,7 @@
                 android:layout_marginTop="6dp"
                 android:background="#11000000"
                 android:drawableStart="@drawable/ic_action_add_caso"
-                android:hint="Poliza"
+                android:hint="@string/poliza"
                 android:maxLines="1"
                 android:textColorHint="@color/colorBackground"
                 android:textSize="14sp" />
@@ -109,7 +109,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
                         android:background="#11000000"
-                        android:hint="Nombre"
+                        android:hint="@string/nombre"
                         android:textAlignment="center"
                         android:textColorHint="@color/colorBackground"
                         android:textSize="14sp" />
@@ -121,7 +121,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
                         android:background="#11000000"
-                        android:hint="Direccion"
+                        android:hint="@string/direccion"
                         android:textAlignment="center"
                         android:textColorHint="@color/colorBackground"
                         android:textSize="14sp" />
@@ -140,7 +140,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
                         android:background="#11000000"
-                        android:hint="Seguro"
+                        android:hint="@string/seguro"
                         android:textAlignment="center"
                         android:textColorHint="@color/colorBackground"
                         android:textSize="14sp" />
@@ -152,7 +152,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
                         android:background="#11000000"
-                        android:hint="Telefono"
+                        android:hint="@string/telefono"
                         android:textAlignment="center"
                         android:textColorHint="@color/colorBackground"
                         android:textSize="14sp" />
@@ -167,7 +167,7 @@
                     android:layout_marginEnd="15dp"
                     android:layout_marginTop="80dp"
                     android:background="@color/colorPrimaryDark"
-                    android:text="Siguiente" />
+                    android:text="@string/siguiente" />
 
             </LinearLayout>
 
