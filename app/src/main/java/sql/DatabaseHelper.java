@@ -12,6 +12,7 @@ import java.util.List;
 import model.Imangen;
 import model.Siniestros;
 import model.User;
+import model.UserSiniestro;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -289,6 +290,61 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 // Adding user record to list
                 userList.add(user);
             } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+
+        // return user list
+        return userList;
+    }
+
+    public ArrayList<UserSiniestro> getAllSiniestros() {
+
+        ArrayList<UserSiniestro> userList = new ArrayList<UserSiniestro>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // query the user table
+        /**
+         * Here query function is used to fetch records from user table this function works like we use sql query.
+         * SQL query equivalent to this query function is
+         * SELECT user_id,user_name,user_email,user_password FROM user ORDER BY user_name;
+         */
+
+        String query = "Select siniestro.id," +
+                "siniestro.lat," +
+                "siniestro.lon," +
+                "siniestro.estado," +
+                "siniestro.fecha," +
+                "siniestro.hora," +
+                "siniestro.user_id," +
+                "user.name," +
+                "user.email," +
+                "user.patente," +
+                "user.direccion," +
+                "user.telefono," +
+                "user.poliza " +
+                "from siniestro " +
+                "left join user on siniestro.user_id = user.user_id";
+        Cursor cursor = db.rawQuery(query,null);
+
+        // Traversing through all rows and adding to list
+        while (cursor.moveToNext()) {
+                UserSiniestro siniestro = new UserSiniestro();
+                siniestro.setId(cursor.getInt(0));
+                siniestro.setLat(cursor.getDouble(1));
+                siniestro.setLon(cursor.getDouble(2));
+                siniestro.setEstado(cursor.getString(3));
+                siniestro.setFecha(cursor.getString(4));
+                siniestro.setHora(cursor.getString(5));
+                siniestro.setUser_id(cursor.getInt(6));
+                siniestro.setName(cursor.getString(7));
+                siniestro.setEmail(cursor.getString(8));
+                siniestro.setPatente(cursor.getString(9));
+                siniestro.setDireccion(cursor.getString(10));
+                siniestro.setTelefono(cursor.getString(11));
+                siniestro.setPoliza(cursor.getString(12));
+                userList.add(siniestro);
         }
         cursor.close();
         db.close();

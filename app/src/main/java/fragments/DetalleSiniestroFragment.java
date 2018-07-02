@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import l.gonza.segurisimo.R;
@@ -30,7 +31,8 @@ public class DetalleSiniestroFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    TextView textDescripcion;
+    TextView textViewFechaYHora,textViewNombre,textViewPatente,textViewDireccion,textViewPoliza,textViewEmail,textViewTelefono;
+    ImageView imageViewAccidente;
 
     private OnFragmentInteractionListener mListener;
 
@@ -71,16 +73,18 @@ public class DetalleSiniestroFragment extends Fragment {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_detalle_siniestro, container, false);
 
-        textDescripcion = vista.findViewById(R.id.test);
 
         Bundle objetoSiniestro = getArguments();
 
         UserSiniestro siniestro = null;
 
+        textViewFechaYHora = vista.findViewById(R.id.textViewFechaYHora);
+        textViewNombre = vista.findViewById(R.id.textViewNombre);
 
         if(objetoSiniestro != null){
             siniestro = (UserSiniestro) objetoSiniestro.getSerializable("objeto");
-            textDescripcion.setText(siniestro.getNombre());
+            textViewFechaYHora.setText((siniestro.getFecha()+" "+siniestro.getHora()));
+            textViewNombre.setText(siniestro.getName());
         }
 
         return vista;
