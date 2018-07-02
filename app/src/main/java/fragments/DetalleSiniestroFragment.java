@@ -82,6 +82,8 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
@@ -143,6 +145,8 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
                     + " must implement OnFragmentInteractionListener");
         }
     }
+
+
 
     @Override
     public void onDetach() {
