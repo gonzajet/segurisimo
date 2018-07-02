@@ -13,7 +13,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Por favor ingrese la fecha y la hora de cuando sucedio el accidente"
+        android:text="@string/por_favor_ingrese_la_fecha_y_la_hora_de_cuando_sucedio_el_accidente"
         android:textSize="15sp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="16dp"
