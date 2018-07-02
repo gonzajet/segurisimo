@@ -73,7 +73,7 @@ public class NewSinisterActivity extends AppCompatActivity implements View.OnCli
             case R.id.appCompatButtonSiguiente:
                 if(isOk){
                     User newUser = getUser();
-                    Intent intent  =new Intent(getApplicationContext(),MapsActivity.class);
+                    Intent intent  =new Intent(getApplicationContext(),Calendario.class);
                     intent.putExtra("userId",newUser.getId());
                     startActivity(intent);
                 }

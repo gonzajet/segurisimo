@@ -16,7 +16,7 @@ import model.User;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     // Database Version
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 35;
 
     // Database Name
     private static final String DATABASE_NAME = "UserManager.db";
@@ -60,6 +60,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_SINIESTRO_LON = "lon";
     private static final String COLUMN_SINIESTRO_USER_ID = "user_id";
     private static final String COLUMN_SINIESTRO_ESTADO = "estado";
+    private static final String COLUMN_SINIESTRO_FECHA = "fecha";
+    private static final String COLUMN_SINIESTRO_HORA = "hora";
 
     // create table sql query
     private String CREATE_SINIESTRO_TABLE = "CREATE TABLE " + TABLE_SINIESTRO + "("
@@ -67,6 +69,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COLUMN_SINIESTRO_LAT + " DOUBLE,"
             + COLUMN_SINIESTRO_LON + " DOUBLE,"
             + COLUMN_SINIESTRO_ESTADO + " TEXT,"
+            + COLUMN_SINIESTRO_FECHA + " TEXT,"
+            + COLUMN_SINIESTRO_HORA + " TEXT,"
             + COLUMN_SINIESTRO_USER_ID + " INTEGER" + ")";
 
     // drop table sql query
@@ -189,6 +193,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_SINIESTRO_ESTADO, "PENDIENTE");
         values.put(COLUMN_SINIESTRO_LAT, siniestros.getLat());
         values.put(COLUMN_SINIESTRO_LON, siniestros.getLon());
+        values.put(COLUMN_SINIESTRO_FECHA, siniestros.getFecha());
+        values.put(COLUMN_SINIESTRO_HORA, siniestros.getHora());
         // Inserting Row
         db.insert(TABLE_SINIESTRO, null, values);
         db.close();
