@@ -21,6 +21,7 @@
     <color name="lightgray">#ededed</color>
     <color name="backgroundcolor">#fcfcfc</color>
     <color name="test">#DFDFDF</color>
+    <color name="bordo">#800c00</color>
 
 
 </resources>
