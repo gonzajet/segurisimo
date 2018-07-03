@@ -32,7 +32,8 @@
     <string name="ubicacion">Ubicacion</string>
     <string name="filtro_por_patente">Filtro por patente</string>
     <string name="filtro_por_estado">Filtro por estado</string>
-
+    <string name="eliminar_siniestro">Eliminar siniestro</string>
+    <string name="editar">Editar</string>
 
 
 
@@ -53,5 +54,6 @@
 
     <string name="estado">Estado:</string>
     <string name="titlulo_pickers">Obtener fecha y hora</string>
+
 
 </resources>

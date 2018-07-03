@@ -145,7 +145,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="Editar"
+                android:text="@string/editar"
                 android:drawableStart="@drawable/ic_action_edit"
                 android:textAlignment="center"
                 android:background="#11000000"/>
@@ -215,7 +215,7 @@
                 android:layout_width="110dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"
-                android:text="Eliminar siniestro"
+                android:text="@string/eliminar_siniestro"
                 android:background="#11000000"
                 android:drawableStart="@drawable/ic_action_delete"/>
 
