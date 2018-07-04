@@ -49,4 +49,13 @@
     <string name="titlulo_pickers">Get date and time</string>
     <string name="eliminar_siniestro">Delete Sinistir</string>
     <string name="editar">Edit</string>
+
+    <string-array name="estados_spinner">
+        <item> </item>
+        <item>PENDING </item>
+        <item>PROCESSING </item>
+        <item>REJECTED </item>
+        <item>ACCEPTED </item>
+        <item>ENDED </item>
+    </string-array>
 </resources>

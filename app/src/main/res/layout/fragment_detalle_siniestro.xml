@@ -198,17 +198,6 @@
                     android:textStyle="bold"
                     />
 
-                <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
-                    <!--xmlns:tools="http://schemas.android.com/tools"-->
-                    <!--android:id="@+id/map2"-->
-
-                    <!--android:name="com.google.android.gms.maps.SupportMapFragment"-->
-                    <!--android:layout_width="330dp"-->
-                    <!--android:layout_height="0dp"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:layout_marginTop="10dp"-->
-                    <!--android:layout_gravity="center"-->
-                    <!--tools:context=".MapsActivity" />-->
                 <com.google.android.gms.maps.MapView
                     android:id="@+id/mapView"
                     android:layout_width="330dp"

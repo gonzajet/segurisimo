@@ -54,6 +54,13 @@
 
     <string name="estado">Estado:</string>
     <string name="titlulo_pickers">Obtener fecha y hora</string>
-
+    <string-array name="estados_spinner">
+        <item> </item>
+        <item>PENDIENTE </item>
+        <item>TRAMITANDO</item>
+        <item>RECHAZADO</item>
+        <item>ACEPTADO</item>
+        <item>FINALIZADO</item>
+    </string-array>
 
 </resources>

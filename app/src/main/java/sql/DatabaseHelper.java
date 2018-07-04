@@ -356,7 +356,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return userList;
     }
 
-    public ArrayList<UserSiniestro> getAllSiniestros(String patente,String estado) {
+    public ArrayList<UserSiniestro> getAllSiniestros(String patente,String estado,String fecha) {
 
         ArrayList<UserSiniestro> userList = new ArrayList<UserSiniestro>();
 
@@ -386,8 +386,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "from siniestro " +
                 "left join user on siniestro.user_id = user.user_id";
 
-        if(!patente.isEmpty() || !estado.isEmpty()){
+        if(!patente.isEmpty() || !estado.isEmpty()  || !fecha.isEmpty()){
             query = query + " where ";
+
             if(!patente.isEmpty()){
                 query = query + " user.patente = \""+patente+"\"";
             }
@@ -396,6 +397,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
             if(!estado.isEmpty()){
                 query = query + " siniestro.estado = \""+ estado+"\"";
+            }
+            if(!patente.isEmpty() && !estado.isEmpty() && !fecha.isEmpty()){
+                query = query + " and ";
+            }
+            if(!fecha.isEmpty()){
+                query = query + " siniestro.fecha = \""+ fecha+"\"";
             }
         }
         
