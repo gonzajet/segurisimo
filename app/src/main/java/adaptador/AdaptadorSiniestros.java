@@ -35,8 +35,11 @@ public class AdaptadorSiniestros extends RecyclerView.Adapter<AdaptadorSiniestro
 
     @Override
     public void onBindViewHolder(@NonNull SiniestrosViewHolder holder, int position) {
-        holder.textViewNombre.setText(listaUsuariosSiniestro.get(position).getName());
-        holder.textViewEstado.setText(listaUsuariosSiniestro.get(position).getEstado());
+        UserSiniestro siniestro = listaUsuariosSiniestro.get(position);
+        String FechaHora = siniestro.getFecha()+" "+siniestro.getHora();
+        holder.textViewNombre.setText(siniestro.getName());
+        holder.textViewEstado.setText(siniestro.getEstado());
+        holder.textViewFecha.setText(FechaHora);
     }
 
     @Override
@@ -53,13 +56,14 @@ public class AdaptadorSiniestros extends RecyclerView.Adapter<AdaptadorSiniestro
 
     public class SiniestrosViewHolder extends RecyclerView.ViewHolder {
         ImageView imageViewPerfil;
-        TextView textViewNombre,textViewEstado;
+        TextView textViewNombre,textViewEstado,textViewFecha;
 
         public SiniestrosViewHolder(View itemView) {
             super(itemView);
             imageViewPerfil = itemView.findViewById(R.id.imageViewPerfil);
             textViewNombre = itemView.findViewById(R.id.textViewNombre);
             textViewEstado = itemView.findViewById(R.id.textViewEstado);
+            textViewFecha = itemView.findViewById(R.id.textViewFecha);
         }
     }
 

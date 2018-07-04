@@ -30,11 +30,19 @@
             android:orientation="vertical">
 
             <TextView
+            android:id="@+id/textViewFecha"
+            android:layout_width="196dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:paddingLeft="10dp"
+            android:hint="@string/fecha_del_accidente" />
+
+            <TextView
                 android:id="@+id/textViewNombre"
                 android:layout_width="196dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:padding="10dp"
+                android:paddingLeft="10dp"
                 android:hint="@string/nombre" />
 
             <TextView
@@ -42,10 +50,9 @@
                 android:layout_width="196dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:padding="10dp"
+                android:paddingLeft="10dp"
                 android:hint="@string/estado" />
 
         </LinearLayout>

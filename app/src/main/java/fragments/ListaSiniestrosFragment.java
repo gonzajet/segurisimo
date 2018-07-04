@@ -146,8 +146,6 @@ public class ListaSiniestrosFragment extends Fragment implements View.OnClickLis
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.appCompatButtonBusqueda:
-                Toast.makeText(getContext(),"Buscando:",Toast.LENGTH_LONG ).show();
-
                 buscar();
                 crearListaView();
                 break;

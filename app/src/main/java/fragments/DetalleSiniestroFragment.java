@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -44,9 +47,10 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private View vista;
 
     private GoogleMap mMap;
+    private MapView mapView;
     private Marker marker;
     private LatLng ubicacion;
     private DatabaseHelper databaseHelper;
@@ -87,16 +91,11 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
         }
     }
 
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View vista = inflater.inflate(R.layout.fragment_detalle_siniestro, container, false);
-
+         vista = inflater.inflate(R.layout.fragment_detalle_siniestro, container, false);
 
         Bundle objetoSiniestro = getArguments();
 
@@ -115,13 +114,15 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
 
         if(objetoSiniestro != null){
             siniestro = (UserSiniestro) objetoSiniestro.getSerializable("objeto");
-            textViewFechaYHora.setText((siniestro.getFecha()+" "+siniestro.getHora()));
-            textViewNombre.setText(siniestro.getName());
-            textViewPatente.setText(siniestro.getPatente());
-            textViewDireccion.setText(siniestro.getDireccion());
-            textViewPoliza.setText(siniestro.getPoliza());
-            textViewEmail.setText(siniestro.getEmail());
-            textViewTelefono.setText(siniestro.getTelefono());
+//            String fechaHora = siniestro.getFecha()+" "+siniestro.getHora();
+            String fechaHora = "";
+            textViewFechaYHora.setText(fechaHora);
+            textViewNombre.setText(getString(R.string.nombre)+": "+siniestro.getName());
+            textViewPatente.setText(getString(R.string.patente)+": "+siniestro.getPatente());
+            textViewDireccion.setText(getString(R.string.direccion)+": "+siniestro.getDireccion());
+            textViewPoliza.setText(getString(R.string.poliza)+": "+siniestro.getPoliza());
+            textViewEmail.setText(getString(R.string.email)+": "+siniestro.getEmail());
+            textViewTelefono.setText(getString(R.string.telefono)+": "+siniestro.getTelefono());
             ubicacion = new LatLng(siniestro.getLat(),siniestro.getLon());
 
             String path = databaseHelper.getAllImagen(siniestro.getId()).get(0).getPath();
@@ -152,6 +153,17 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
     }
 
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mapView = view.findViewById(R.id.mapView);
+        if(mapView !=null){
+            mapView.onCreate(null);
+            mapView.onResume();
+            mapView.getMapAsync(this);
+        }
+
+    }
 
     @Override
     public void onDetach() {
@@ -162,7 +174,7 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(ubicacion));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ubicacion,18));
         marker = mMap.addMarker(new MarkerOptions().position(ubicacion).draggable(true).title("Accidente").snippet("En este lugar ocurrio un siniestro"));
     }
 
