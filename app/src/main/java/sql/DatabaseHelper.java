@@ -653,4 +653,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //            return "";
 //        }
     }
+
+    public void borrarSiniestro(Siniestros siniestro){
+
+        String query = "delete from siniestro where id= "+siniestro.getId()+"; delete from siniestro where siniestro_id= "+siniestro.getId();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query,null);
+
+        cursor.close();
+        db.close();
+
+    }
 }

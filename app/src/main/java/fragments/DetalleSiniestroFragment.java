@@ -142,47 +142,10 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
         imageViewAccidente = vista.findViewById(R.id.imageViewAccidente);
 
         registerForContextMenu(imageViewAccidente);
-//        imageViewAccidente.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
-//            @Override
-//            public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-//
-//            }
-//        });
-//        imageViewAccidente.(new View.OnCreateContextMenuListener {
-//            @Override
-//            public boolean onLongClick(View arg0) {
-//
-//                AlertDialog.Builder dialogo = new AlertDialog.Builder(getContext());
-//                dialogo.setTitle(getString(R.string.guardarFoto));
-//                dialogo.setMessage(getString(R.string.guardarFoto));
-//                dialogo.setCancelable(false);
-//                dialogo.setPositiveButton("Erase", new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialogo1, int id) {
-//                        //codigo
-//                    }
-//                });
-//                dialogo.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialogo1, int id) {
-//                        //codigo
-//                    }
-//                });
-//                dialogo.show();
-//            }
-////convertir imagen a bitmap
-//                imageViewAccidente.buildDrawingCache();
-//                Bitmap bmap = imageViewAccidente.getDrawingCache();
-////guardar imagen
-//                Save savefile = new Save();
-//                savefile.SaveImage(getContext(), bmap);
-//
-//                 return true;
-//            }
-//        });
         databaseHelper = new DatabaseHelper(getContext());
 
         if(objetoSiniestro != null){
             siniestro = (UserSiniestro) objetoSiniestro.getSerializable("objeto");
-//            String fechaHora = siniestro.getFecha()+" "+siniestro.getHora();
             String fechaHora = "";
             textViewFechaYHora.setText(fechaHora);
             textViewNombre.setText(getString(R.string.nombre)+": "+siniestro.getName());

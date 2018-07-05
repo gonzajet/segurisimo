@@ -98,6 +98,7 @@ class RegisterActivity  extends  AppCompatActivity implements View.OnClickListen
                 postDataToSQLite();
                 Intent intentRegister = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intentRegister);
+                finish();
                 break;
 
             case R.id.appCompatTextViewLoginLink:
