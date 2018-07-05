@@ -1,4 +1,5 @@
 package l.gonza.segurisimo;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -95,6 +96,8 @@ class RegisterActivity  extends  AppCompatActivity implements View.OnClickListen
 
             case R.id.appCompatButtonRegister:
                 postDataToSQLite();
+                Intent intentRegister = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(intentRegister);
                 break;
 
             case R.id.appCompatTextViewLoginLink:
