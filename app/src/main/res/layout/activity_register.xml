@@ -53,6 +53,8 @@
             android:layout_marginTop="10dp"
             android:textColorHint="@color/colorBackground">
 
+
+
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/textInputEditTextEmail"
                 android:layout_width="280dp"

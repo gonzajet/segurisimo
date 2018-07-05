@@ -94,35 +94,73 @@
                 android:clipToPadding="false"
                 android:orientation="vertical">
 
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:clipToPadding="false"
-                    android:orientation="horizontal">
+                    android:clipToPadding="false">
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/textInputLayoutNombre"
+                        android:layout_width="77.5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:textColorHint="@color/colorBackground">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/textInputEditTextNombreFijo"
+                            android:layout_width="77.5dp"
+                            android:layout_height="40dp"
+                            android:background="#11000000"
+                            android:hint="@string/nombre"
+                            android:textAlignment="center"
+                            android:textColorHint="@color/colorBackground"
+                            android:textSize="14sp" />
+
+                    </android.support.design.widget.TextInputLayout>
+
 
                     <android.support.design.widget.TextInputEditText
                         android:id="@+id/textInputEditTextNombre"
-                        android:layout_width="155dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_width="77.55dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="17dp"
                         android:background="#11000000"
-                        android:hint="@string/nombre"
+                        android:textColorHint="@color/colorBackground"
+                        android:textSize="14sp" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/textInputLayoutDireccion"
+                        android:layout_width="77.5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:textColorHint="@color/colorBackground">
+
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/textInputEditTextDireccionFijo"
+                        android:layout_width="77.5dp"
+                        android:layout_height="40dp"
+
+                        android:background="#11000000"
+                        android:hint="@string/direccion"
                         android:textAlignment="center"
                         android:textColorHint="@color/colorBackground"
                         android:textSize="14sp" />
 
+                    </android.support.design.widget.TextInputLayout>
+
                     <android.support.design.widget.TextInputEditText
                         android:id="@+id/textInputEditTextDireccion"
-                        android:layout_width="155dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_width="77.5dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="17dp"
                         android:background="#11000000"
-                        android:hint="@string/direccion"
-                        android:textAlignment="center"
                         android:textColorHint="@color/colorBackground"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -133,27 +171,62 @@
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/textInputEditTextSeguro"
-                        android:layout_width="155dp"
-                        android:layout_height="50dp"
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/textInputLayoutSeguro"
+                        android:layout_width="77.5dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
+                        android:textColorHint="@color/colorBackground">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/textInputEditTextSeguroFijo"
+                        android:layout_width="77.5dp"
+                        android:layout_height="40dp"
                         android:background="#11000000"
                         android:hint="@string/seguro"
                         android:textAlignment="center"
                         android:textColorHint="@color/colorBackground"
                         android:textSize="14sp" />
 
+                    </android.support.design.widget.TextInputLayout>
+
                     <android.support.design.widget.TextInputEditText
-                        android:id="@+id/textInputEditTextTelefono"
-                        android:layout_width="155dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="20dp"
+                        android:id="@+id/textInputEditTextSeguro"
+                        android:layout_width="77.5dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="17dp"
+                        android:background="#11000000"
+                        android:textColorHint="@color/colorBackground"
+                        android:textSize="14sp" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/textInputLayoutTelefono"
+                        android:layout_width="77.5dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:textColorHint="@color/colorBackground">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/textInputEditTextTelefonoFijo"
+                        android:layout_width="77.5dp"
+                        android:layout_height="40dp"
                         android:background="#11000000"
                         android:hint="@string/telefono"
                         android:textAlignment="center"
+                        android:textColorHint="@color/colorBackground"
+                        android:textSize="14sp" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/textInputEditTextTelefono"
+                        android:layout_width="77.5dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="17dp"
+                        android:background="#11000000"
                         android:textColorHint="@color/colorBackground"
                         android:textSize="14sp" />
                 </LinearLayout>

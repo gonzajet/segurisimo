@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="0dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -64,8 +64,8 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textViewNombre"
-                        android:layout_width="160dp"
+                        android:id="@+id/textViewNombreFijo"
+                        android:layout_width="80dp"
                         android:layout_height="40dp"
                         android:background="#11000000"
                         android:text="@string/nombre"
@@ -73,8 +73,16 @@
                         android:textAlignment="center"/>
 
                     <TextView
-                        android:id="@+id/textViewPatente"
-                        android:layout_width="160dp"
+                        android:id="@+id/textViewNombre"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:background="#11000000"
+                        android:textSize="15sp"
+                       />
+
+                    <TextView
+                        android:id="@+id/textViewPatenteFijo"
+                        android:layout_width="80dp"
                         android:layout_height="40dp"
                         android:background="#11000000"
                         android:text="@string/patente"
@@ -82,6 +90,14 @@
                         android:textAlignment="center"
                         android:layout_marginStart="20dp"/>
 
+                    <TextView
+                        android:id="@+id/textViewPatente"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:background="#11000000"
+                        android:textSize="15sp"
+                        />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -91,8 +107,8 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textViewDireccion"
-                        android:layout_width="160dp"
+                        android:id="@+id/textViewDireccionFijo"
+                        android:layout_width="80dp"
                         android:layout_height="40dp"
                         android:background="#11000000"
                         android:text="@string/direccion"
@@ -100,14 +116,29 @@
                         android:textAlignment="center"/>
 
                     <TextView
-                        android:id="@+id/textViewPoliza"
-                        android:layout_width="160dp"
+                        android:id="@+id/textViewDireccion"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:background="#11000000"
+                        android:textSize="15sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/textViewPolizaFijo"
+                        android:layout_width="80dp"
                         android:layout_height="40dp"
                         android:background="#11000000"
                         android:text="@string/poliza"
                         android:textSize="15sp"
                         android:textAlignment="center"
                         android:layout_marginStart="20dp"/>
+                    <TextView
+                        android:id="@+id/textViewPoliza"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:background="#11000000"
+                        android:textSize="15sp"
+                        />
 
 
                 </LinearLayout>
@@ -120,8 +151,8 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textViewEmail"
-                        android:layout_width="160dp"
+                        android:id="@+id/textViewEmailFijo"
+                        android:layout_width="80dp"
                         android:layout_height="40dp"
                         android:background="#11000000"
                         android:text="@string/email"
@@ -129,8 +160,16 @@
                         android:textAlignment="center"/>
 
                     <TextView
-                        android:id="@+id/textViewTelefono"
-                        android:layout_width="160dp"
+                        android:id="@+id/textViewEmail"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:background="#11000000"
+                        android:textSize="15sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/textViewTelefonoFijo"
+                        android:layout_width="80dp"
                         android:layout_height="40dp"
                         android:background="#11000000"
                         android:text="@string/telefono"
@@ -138,11 +177,19 @@
                         android:textAlignment="center"
                         android:layout_marginStart="20dp"/>
 
+                    <TextView
+                        android:id="@+id/textViewTelefono"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:background="#11000000"
+                        android:textSize="15sp"
+                        />
+
 
                 </LinearLayout>
             <EditText
                 android:layout_width="90dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:text="@string/editar"

@@ -50,4 +50,7 @@
     <string name="estado">Estado:</string>
     <string name="titlulo_pickers">Obter data e hora</string>
     <string name="selecc_f_h">Selecione data e hora</string>
+    <string name="save_interna">Salvar na memoria interna</string>
+    <string name="guardarFoto">Voce quer salvar a imagem?</string>
+    <string name="save_sd">Salvar no cartao SD</string>
 </resources>
