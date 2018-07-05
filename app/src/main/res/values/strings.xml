@@ -7,12 +7,12 @@
     <string name="crear_siniestro">Crear siniestro</string>
     <string name="registre_un_accidente">Registre un accidente</string>
     <string name="siniestros_cargados">Siniestros cargados</string>
-    <string name="lista_siniestros">Se listan todos sus siniestros cargados</string>
+    <string name="lista_siniestros">Siniestros cargados</string>
     <string name="llamar_grua">Llamar grua</string>
     <string name="formato_fecha">dd/mm/yyyy</string>
     <string name="formato_hora">hh:mm</string>
-    <string name="click_grua">Haga click para pedir una grua</string>
-    <string name="username">Username</string>
+    <string name="click_grua">Pedir una grua</string>
+    <string name="username">Usuario</string>
     <string name="password">Contraseña</string>
     <string name="login">Login</string>
     <string name="register">No tenes cuenta? Registrate</string>
@@ -24,7 +24,7 @@
     <string name="telefono">Telefono</string>
     <string name="email">Email</string>
     <string name="confirm_password">Confirmar contraseña</string>
-    <string name="text_register">Register</string>
+    <string name="text_register">Registrarse</string>
     <string name="eres_miembro">Ya eres miembro? Login</string>
     <string name="datos">Datos</string>
     <string name="fecha_del_accidente">Fecha del accidente</string>
@@ -34,6 +34,7 @@
     <string name="filtro_por_estado">Filtro por estado</string>
     <string name="eliminar_siniestro">Eliminar siniestro</string>
     <string name="editar">Editar</string>
+    <string name="selecc_f_h">Seleccione fecha y hora</string>
 
 
 
