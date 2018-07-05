@@ -72,7 +72,7 @@
                         android:textSize="15sp"
                         android:textAlignment="center"/>
 
-                    <TextView
+                    <EditText
                         android:id="@+id/textViewNombre"
                         android:layout_width="80dp"
                         android:layout_height="40dp"
@@ -90,7 +90,7 @@
                         android:textAlignment="center"
                         android:layout_marginStart="20dp"/>
 
-                    <TextView
+                    <EditText
                         android:id="@+id/textViewPatente"
                         android:layout_width="80dp"
                         android:layout_height="40dp"
@@ -115,7 +115,7 @@
                         android:textSize="15sp"
                         android:textAlignment="center"/>
 
-                    <TextView
+                    <EditText
                         android:id="@+id/textViewDireccion"
                         android:layout_width="80dp"
                         android:layout_height="40dp"
@@ -132,7 +132,7 @@
                         android:textSize="15sp"
                         android:textAlignment="center"
                         android:layout_marginStart="20dp"/>
-                    <TextView
+                    <EditText
                         android:id="@+id/textViewPoliza"
                         android:layout_width="80dp"
                         android:layout_height="40dp"
@@ -159,7 +159,7 @@
                         android:textSize="15sp"
                         android:textAlignment="center"/>
 
-                    <TextView
+                    <EditText
                         android:id="@+id/textViewEmail"
                         android:layout_width="80dp"
                         android:layout_height="40dp"
@@ -177,7 +177,7 @@
                         android:textAlignment="center"
                         android:layout_marginStart="20dp"/>
 
-                    <TextView
+                    <EditText
                         android:id="@+id/textViewTelefono"
                         android:layout_width="80dp"
                         android:layout_height="40dp"
