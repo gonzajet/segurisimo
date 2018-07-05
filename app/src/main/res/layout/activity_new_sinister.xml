@@ -105,15 +105,15 @@
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/textInputLayoutNombre"
-                        android:layout_width="77.5dp"
+                        android:layout_width="155dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
                         android:textColorHint="@color/colorBackground">
 
                         <android.support.design.widget.TextInputEditText
-                            android:id="@+id/textInputEditTextNombreFijo"
-                            android:layout_width="77.5dp"
+                            android:id="@+id/textInputEditTextNombre"
+                            android:layout_width="155dp"
                             android:layout_height="40dp"
                             android:background="#11000000"
                            android:gravity="center"
@@ -125,18 +125,11 @@
                     </android.support.design.widget.TextInputLayout>
 
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/textInputEditTextNombre"
-                        android:layout_width="77.55dp"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="17dp"
-                        android:background="#11000000"
-                        android:textColorHint="@color/colorBackground"
-                        android:textSize="14sp" />
+
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/textInputLayoutDireccion"
-                        android:layout_width="77.5dp"
+                        android:layout_width="155dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="20dp"
@@ -144,8 +137,8 @@
 
 
                     <android.support.design.widget.TextInputEditText
-                        android:id="@+id/textInputEditTextDireccionFijo"
-                        android:layout_width="77.5dp"
+                        android:id="@+id/textInputEditTextDireccion"
+                        android:layout_width="155dp"
                         android:layout_height="40dp"
                         android:gravity="center"
                         android:background="#11000000"
@@ -156,14 +149,7 @@
 
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/textInputEditTextDireccion"
-                        android:layout_width="77.5dp"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="17dp"
-                        android:background="#11000000"
-                        android:textColorHint="@color/colorBackground"
-                        android:textSize="14sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -175,15 +161,15 @@
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/textInputLayoutSeguro"
-                        android:layout_width="77.5dp"
+                        android:layout_width="155dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
                         android:textColorHint="@color/colorBackground">
 
                     <android.support.design.widget.TextInputEditText
-                        android:id="@+id/textInputEditTextSeguroFijo"
-                        android:layout_width="77.5dp"
+                        android:id="@+id/textInputEditTextSeguro"
+                        android:layout_width="155dp"
                         android:layout_height="40dp"
                         android:background="#11000000"
                         android:gravity="center"
@@ -194,26 +180,18 @@
 
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/textInputEditTextSeguro"
-                        android:layout_width="77.5dp"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="17dp"
-                        android:background="#11000000"
-                        android:textColorHint="@color/colorBackground"
-                        android:textSize="14sp" />
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/textInputLayoutTelefono"
-                        android:layout_width="77.5dp"
+                        android:layout_width="155dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="20dp"
                         android:textColorHint="@color/colorBackground">
 
                     <android.support.design.widget.TextInputEditText
-                        android:id="@+id/textInputEditTextTelefonoFijo"
-                        android:layout_width="77.5dp"
+                        android:id="@+id/textInputEditTextTelefono"
+                        android:layout_width="155dp"
                         android:layout_height="40dp"
                         android:background="#11000000"
                         android:gravity="center"
@@ -224,14 +202,6 @@
 
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/textInputEditTextTelefono"
-                        android:layout_width="77.5dp"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="17dp"
-                        android:background="#11000000"
-                        android:textColorHint="@color/colorBackground"
-                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <android.support.v7.widget.AppCompatButton

@@ -162,12 +162,12 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
             siniestro = (UserSiniestro) objetoSiniestro.getSerializable("objeto");
             String fechaHora = "";
             textViewFechaYHora.setText(fechaHora);
-            textViewNombre.setText(getString(R.string.nombre)+": "+siniestro.getName());
-            textViewPatente.setText(getString(R.string.patente)+": "+siniestro.getPatente());
-            textViewDireccion.setText(getString(R.string.direccion)+": "+siniestro.getDireccion());
-            textViewPoliza.setText(getString(R.string.poliza)+": "+siniestro.getPoliza());
-            textViewEmail.setText(getString(R.string.email)+": "+siniestro.getEmail());
-            textViewTelefono.setText(getString(R.string.telefono)+": "+siniestro.getTelefono());
+            textViewNombre.setText(siniestro.getName());
+            textViewPatente.setText(siniestro.getPatente());
+            textViewDireccion.setText(siniestro.getDireccion());
+            textViewPoliza.setText(siniestro.getPoliza());
+            textViewEmail.setText(siniestro.getEmail());
+            textViewTelefono.setText(siniestro.getTelefono());
             ubicacion = new LatLng(siniestro.getLat(),siniestro.getLon());
 
             String path = databaseHelper.getAllImagen(siniestro.getId()).get(0).getPath();
