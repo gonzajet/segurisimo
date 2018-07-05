@@ -49,7 +49,9 @@
     <string name="titlulo_pickers">Get date and time</string>
     <string name="eliminar_siniestro">Delete Sinistir</string>
     <string name="editar">Edit</string>
-
+    <string name="guardarFoto">Do you want to Save the image?</string>
+    <string name="save_interna">Guardar en memoria Interna</string>
+    <string name="save_sd">Save to the SD card</string>
     <string-array name="estados_spinner">
         <item> </item>
         <item>PENDING </item>

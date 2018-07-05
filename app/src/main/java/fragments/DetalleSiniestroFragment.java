@@ -1,6 +1,7 @@
 package fragments;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -8,7 +9,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +28,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import helpers.Save;
 import l.gonza.segurisimo.R;
 import model.Imangen;
 import model.UserSiniestro;
@@ -59,6 +63,33 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
     ImageView imageViewAccidente;
 
     private OnFragmentInteractionListener mListener;
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        imageViewAccidente.buildDrawingCache();
+        Bitmap bmap = imageViewAccidente.getDrawingCache();
+        Save savefile = new Save();
+
+        switch (item.getItemId()){
+            case  R.id.save_interna:
+                savefile.SaveImage(getContext(), bmap,true);
+                break;
+            case R.id.save_sd:
+                savefile.SaveImage(getContext(), bmap,false);
+                break;
+        }
+        return super.onContextItemSelected(item);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        if(v.getId()==R.id.imageViewAccidente){
+            getActivity().getMenuInflater().inflate(R.menu.image_save,menu);
+        }
+    }
 
     public DetalleSiniestroFragment() {
         // Required empty public constructor
@@ -110,6 +141,43 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
         textViewTelefono = vista.findViewById(R.id.textViewTelefono);
         imageViewAccidente = vista.findViewById(R.id.imageViewAccidente);
 
+        registerForContextMenu(imageViewAccidente);
+//        imageViewAccidente.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+//            @Override
+//            public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+//
+//            }
+//        });
+//        imageViewAccidente.(new View.OnCreateContextMenuListener {
+//            @Override
+//            public boolean onLongClick(View arg0) {
+//
+//                AlertDialog.Builder dialogo = new AlertDialog.Builder(getContext());
+//                dialogo.setTitle(getString(R.string.guardarFoto));
+//                dialogo.setMessage(getString(R.string.guardarFoto));
+//                dialogo.setCancelable(false);
+//                dialogo.setPositiveButton("Erase", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialogo1, int id) {
+//                        //codigo
+//                    }
+//                });
+//                dialogo.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialogo1, int id) {
+//                        //codigo
+//                    }
+//                });
+//                dialogo.show();
+//            }
+////convertir imagen a bitmap
+//                imageViewAccidente.buildDrawingCache();
+//                Bitmap bmap = imageViewAccidente.getDrawingCache();
+////guardar imagen
+//                Save savefile = new Save();
+//                savefile.SaveImage(getContext(), bmap);
+//
+//                 return true;
+//            }
+//        });
         databaseHelper = new DatabaseHelper(getContext());
 
         if(objetoSiniestro != null){

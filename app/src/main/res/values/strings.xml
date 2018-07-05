@@ -54,6 +54,9 @@
 
     <string name="estado">Estado:</string>
     <string name="titlulo_pickers">Obtener fecha y hora</string>
+    <string name="guardarFoto">¿Desea Guardar la imagen?</string>
+    <string name="save_interna">Guardar en memoria Interna</string>
+    <string name="save_sd">Guardar en la tarjeta SD</string>
     <string-array name="estados_spinner">
         <item> </item>
         <item>PENDIENTE </item>
