@@ -368,8 +368,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
          * SQL query equivalent to this query function is
          * SELECT user_id,user_name,user_email,user_password FROM user ORDER BY user_name;
          */
-        Log.i("test",patente);
-        Log.i("test",estado);
         String query = "Select siniestro.id," +
                 "siniestro.lat," +
                 "siniestro.lon," +
@@ -494,7 +492,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * @param user
      */
     public void updateUserSiniestro(UserSiniestro user) {
+
         SQLiteDatabase db = this.getWritableDatabase();
+
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_USER_NAME, user.getName());
@@ -504,7 +504,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_USER_DIRECCION, user.getDireccion());
         values.put(COLUMN_USER_EMAIL, user.getEmail());
 
-        // updating row
         db.update(TABLE_USER, values, COLUMN_USER_ID + " = ?",
                 new String[]{String.valueOf(user.getUser_id())});
         db.close();
