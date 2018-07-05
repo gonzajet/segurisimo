@@ -187,7 +187,8 @@
 
 
                 </LinearLayout>
-            <EditText
+                <android.support.v7.widget.AppCompatButton
+                android:id="@+id/appCompatButtonEditar"
                 android:layout_width="90dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -255,6 +256,7 @@
 
             </LinearLayout>
             <android.support.v7.widget.AppCompatButton
+                android:id="@+id/appCompatButtonEliminar"
                 android:layout_width="110dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"

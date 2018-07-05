@@ -29,9 +29,7 @@ public class ListaSiniestroActivity extends AppCompatActivity implements ListaSi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_card_view);
 
-        listaFragment = new ListaSiniestrosFragment();
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.contenedorFragment,listaFragment).commit();
+       implementarListaFragment();
     }
 
 
@@ -48,5 +46,16 @@ public class ListaSiniestroActivity extends AppCompatActivity implements ListaSi
         detalleFragment.setArguments(bundleEnvio);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.contenedorFragment,detalleFragment).addToBackStack(null).commit();
+    }
+
+    @Override
+    public void volverLista() {
+        implementarListaFragment();
+    }
+
+    private void implementarListaFragment(){
+        listaFragment = new ListaSiniestrosFragment();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.contenedorFragment,listaFragment).commit();
     }
 }

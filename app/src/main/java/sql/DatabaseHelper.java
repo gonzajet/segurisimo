@@ -652,15 +652,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void borrarSiniestro(Siniestros siniestro){
-
-        String query = "delete from siniestro where id= "+siniestro.getId()+"; delete from siniestro where siniestro_id= "+siniestro.getId();
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(query,null);
-
-        cursor.close();
+    public void borrarSiniestro(UserSiniestro siniestro){
+        SQLiteDatabase db = this.getWritableDatabase();
+        // delete user record by id
+        db.delete(TABLE_SINIESTRO, COLUMN_SINIESTRO_ID + " = ?",
+                new String[]{String.valueOf(siniestro.getId())});
         db.close();
+    }
 
+    public void borrarImagenSiniestro(UserSiniestro siniestro){
+        SQLiteDatabase db = this.getWritableDatabase();
+        // delete user record by id
+        db.delete(TABLE_IMAGEN, COLUMN_IMAGEN_SINIESTRO_ID + " = ?",
+                new String[]{String.valueOf(siniestro.getId())});
+        db.close();
     }
 }
