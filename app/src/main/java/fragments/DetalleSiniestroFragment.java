@@ -1,5 +1,6 @@
 package fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
@@ -10,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -19,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -29,8 +32,11 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import helpers.Save;
+import interfaces.IComunicaFragments;
+import l.gonza.segurisimo.ListaSiniestroActivity;
 import l.gonza.segurisimo.R;
 import model.Imangen;
+import model.Siniestros;
 import model.UserSiniestro;
 import sql.DatabaseHelper;
 
@@ -42,7 +48,7 @@ import sql.DatabaseHelper;
  * Use the {@link DetalleSiniestroFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCallback {
+public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCallback,View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -59,10 +65,15 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
     private LatLng ubicacion;
     private DatabaseHelper databaseHelper;
 
+    UserSiniestro siniestro;
+
     TextView textViewFechaYHora,textViewNombre,textViewPatente,textViewDireccion,textViewPoliza,textViewEmail,textViewTelefono;
     ImageView imageViewAccidente;
+    AppCompatButton appCompatButtonEliminar,appCompatButtonEditar;
 
     private OnFragmentInteractionListener mListener;
+    private Activity activity;
+    private IComunicaFragments interfaceComunicaFragment;
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
@@ -130,7 +141,6 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
 
         Bundle objetoSiniestro = getArguments();
 
-        UserSiniestro siniestro = null;
 
         textViewFechaYHora = vista.findViewById(R.id.textViewFechaYHora);
         textViewNombre = vista.findViewById(R.id.textViewNombre);
@@ -141,6 +151,10 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
         textViewTelefono = vista.findViewById(R.id.textViewTelefono);
         imageViewAccidente = vista.findViewById(R.id.imageViewAccidente);
 
+        appCompatButtonEditar = vista.findViewById(R.id.appCompatButtonEditar);
+        appCompatButtonEliminar = vista.findViewById(R.id.appCompatButtonEliminar);
+
+        appCompatButtonEliminar.setOnClickListener(this);
         registerForContextMenu(imageViewAccidente);
         databaseHelper = new DatabaseHelper(getContext());
 
@@ -175,6 +189,10 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        if(context instanceof Activity){
+            this.activity =(Activity) context;
+            interfaceComunicaFragment = (IComunicaFragments) this.activity;
+        }
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
@@ -207,6 +225,31 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
         mMap = googleMap;
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ubicacion,18));
         marker = mMap.addMarker(new MarkerOptions().position(ubicacion).draggable(true).title("Accidente").snippet("En este lugar ocurrio un siniestro"));
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.appCompatButtonEliminar:
+                Toast.makeText(getContext(),"hola",Toast.LENGTH_LONG).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage("Esta seguro que desea eliminar este siniestro")
+                        .setTitle("ELIMINAR SINIESTRO");
+                builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        databaseHelper.borrarSiniestro( siniestro);
+                            Toast.makeText(getContext(),"borrar",Toast.LENGTH_LONG).show();
+                        interfaceComunicaFragment.volverLista();
+                    }
+                });
+                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                            }
+                        });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                break;
+        }
     }
 
     /**
