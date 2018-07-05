@@ -649,9 +649,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             cursor.close();
             db.close();
             return user;
-//        }catch (Exception e){
-//            return "";
-//        }
+
     }
 
     public void borrarSiniestro(Siniestros siniestro){

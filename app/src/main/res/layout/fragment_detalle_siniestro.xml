@@ -207,7 +207,7 @@
                     />
 
             </LinearLayout>
-            <EditText
+            <android.support.v7.widget.AppCompatButton
                 android:layout_width="110dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"

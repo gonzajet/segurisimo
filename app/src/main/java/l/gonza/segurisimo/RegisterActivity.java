@@ -95,10 +95,12 @@ class RegisterActivity  extends  AppCompatActivity implements View.OnClickListen
         switch (v.getId()) {
 
             case R.id.appCompatButtonRegister:
-                postDataToSQLite();
-                Intent intentRegister = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intentRegister);
-                finish();
+
+                if(postDataToSQLite()){
+                    Intent intentRegister = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intentRegister);
+                    finish();
+                }
                 break;
 
             case R.id.appCompatTextViewLoginLink:
@@ -110,22 +112,22 @@ class RegisterActivity  extends  AppCompatActivity implements View.OnClickListen
     /**
      * This method is to validate the input text fields and post data to SQLite
      */
-    private void postDataToSQLite() {
+    private Boolean postDataToSQLite() {
         if (!inputValidation.isInputEditTextFilled(textInputEditTextName, textInputLayoutName, getString(R.string.error_message_name))) {
-            return;
+            return false;
         }
         if (!inputValidation.isInputEditTextFilled(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
-            return;
+            return false;
         }
         if (!inputValidation.isInputEditTextEmail(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
-            return;
+            return false;
         }
         if (!inputValidation.isInputEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_password))) {
-            return;
+            return false;
         }
         if (!inputValidation.isInputEditTextMatches(textInputEditTextPassword, textInputEditTextConfirmPassword,
                 textInputLayoutConfirmPassword, getString(R.string.error_password_match))) {
-            return;
+            return false;
         }
 
         if (!databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim())) {
@@ -139,11 +141,12 @@ class RegisterActivity  extends  AppCompatActivity implements View.OnClickListen
             // Snack Bar to show success message that record saved successfully
             Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
             emptyInputEditText();
-
+            return true;
 
         } else {
             // Snack Bar to show error message that record already exists
             Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
+            return false;
         }
 
 
