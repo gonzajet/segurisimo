@@ -65,13 +65,13 @@ public class NewSinisterActivity extends AppCompatActivity implements View.OnCli
                if(user.getId() == 0){
                    setEnableTextInput(true);
                    setTextInputClear();
-                   createUserSiniester();
                }else{
                    setTextInputUser(user);
                }
                 break;
             case R.id.appCompatButtonSiguiente:
                 if(isOk){
+                    createUserSiniester();
                     User newUser = getUser();
                     Intent intent  =new Intent(getApplicationContext(),Calendario.class);
                     intent.putExtra("userId",newUser.getId());
