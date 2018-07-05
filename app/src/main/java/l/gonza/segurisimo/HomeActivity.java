@@ -68,9 +68,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 launchActivity(LoginActivity.class);
                 finish();
                 return true;
-            case R.id.menu_settings:
-                Log.i("ActionBar", "Settings");
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

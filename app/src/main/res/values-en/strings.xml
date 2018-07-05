@@ -17,7 +17,7 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="register">Do not you have an account? Sign up</string>
-    <string name="patente">patent</string>
+    <string name="patente">Patent</string>
     <string name="poliza">Policy</string>
     <string name="nombre">Name</string>
     <string name="direccion">Address</string>
@@ -58,4 +58,5 @@
         <item>ACCEPTED </item>
         <item>ENDED </item>
     </string-array>
+    <string name="selecc_f_h">Select date and time</string>
 </resources>
