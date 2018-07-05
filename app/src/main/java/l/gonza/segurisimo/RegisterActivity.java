@@ -96,7 +96,7 @@ class RegisterActivity  extends  AppCompatActivity implements View.OnClickListen
 
             case R.id.appCompatButtonRegister:
                 postDataToSQLite();
-                Intent intentRegister = new Intent(getApplicationContext(), RegisterActivity.class);
+                Intent intentRegister = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intentRegister);
                 break;
 
