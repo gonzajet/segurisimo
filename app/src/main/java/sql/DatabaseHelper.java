@@ -659,4 +659,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 new String[]{String.valueOf(siniestro.getId())});
         db.close();
     }
+
+    public void borrarImagenSiniestro(UserSiniestro siniestro){
+        SQLiteDatabase db = this.getWritableDatabase();
+        // delete user record by id
+        db.delete(TABLE_IMAGEN, COLUMN_IMAGEN_SINIESTRO_ID + " = ?",
+                new String[]{String.valueOf(siniestro.getId())});
+        db.close();
+    }
 }

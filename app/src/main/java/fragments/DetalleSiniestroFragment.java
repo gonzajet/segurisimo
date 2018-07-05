@@ -238,6 +238,7 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
                 builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         databaseHelper.borrarSiniestro( siniestro);
+                        databaseHelper.borrarImagenSiniestro( siniestro);
                             Toast.makeText(getContext(),"borrar",Toast.LENGTH_LONG).show();
                         interfaceComunicaFragment.volverLista();
                     }
