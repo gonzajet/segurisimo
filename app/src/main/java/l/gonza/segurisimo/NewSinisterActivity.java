@@ -3,11 +3,14 @@ package l.gonza.segurisimo;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
+import android.text.Layout;
 import android.view.View;
 
+import helpers.InputValidation;
 import model.User;
 import sql.DatabaseHelper;
 
@@ -17,6 +20,8 @@ public class NewSinisterActivity extends AppCompatActivity implements View.OnCli
     private AppCompatButton appCompatButtonBusqueda,appCompatButtonSiguiente;
     private DatabaseHelper databaseHelper;
     private Boolean isOk;
+    private InputValidation inputValidation;
+    private TextInputLayout textInputLayoutNombre, textInputLayoutDireccion,textInputLayoutSeguro,textInputLayoutTelefono;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +38,24 @@ public class NewSinisterActivity extends AppCompatActivity implements View.OnCli
      * This method is to initialize views
      */
     private void initViews() {
+        textInputEditTextNombre = findViewById(R.id.textInputEditTextNombre);
+        textInputLayoutNombre = findViewById(R.id.textInputLayoutNombre);
+
+        textInputEditTextDireccion = findViewById(R.id.textInputEditTextDireccion);
+        textInputLayoutDireccion= findViewById(R.id.textInputLayoutDireccion);
+
+        textInputEditTextSeguro = findViewById(R.id.textInputEditTextSeguro);
+        textInputLayoutSeguro= findViewById(R.id.textInputLayoutSeguro);
+
+        textInputEditTextTelefono = findViewById(R.id.textInputEditTextTelefono);
+        textInputLayoutTelefono= findViewById(R.id.textInputLayoutTelefono);
 
         textInputEditTextPatente = findViewById(R.id.textInputEditTextPatente);
+
         textInputEditTextPoliza = findViewById(R.id.textInputEditTextPoliza);
-        textInputEditTextNombre = findViewById(R.id.textInputEditTextNombre);
-        textInputEditTextDireccion = findViewById(R.id.textInputEditTextDireccion);
-        textInputEditTextSeguro = findViewById(R.id.textInputEditTextSeguro);
-        textInputEditTextTelefono = findViewById(R.id.textInputEditTextTelefono);
 
         appCompatButtonBusqueda = findViewById(R.id.appCompatButtonBusqueda);
+
         appCompatButtonSiguiente = findViewById(R.id.appCompatButtonSiguiente);
 
     }
@@ -70,11 +84,14 @@ public class NewSinisterActivity extends AppCompatActivity implements View.OnCli
                }
                 break;
             case R.id.appCompatButtonSiguiente:
-                if(isOk){
+
+
+                if(verify()){
                     createUserSiniester();
                     User newUser = getUser();
                     Intent intent  =new Intent(getApplicationContext(),Calendario.class);
                     intent.putExtra("userId",newUser.getId());
+
                     startActivity(intent);
                 }
 
@@ -98,6 +115,7 @@ public class NewSinisterActivity extends AppCompatActivity implements View.OnCli
      */
     private void initObjects() {
         databaseHelper = new DatabaseHelper(this);
+        inputValidation = new InputValidation(this);
     }
 
     private void initFunctions(){
@@ -129,4 +147,13 @@ public class NewSinisterActivity extends AppCompatActivity implements View.OnCli
         textInputEditTextSeguro.setText("");
         textInputEditTextTelefono.setText("");
     }
+
+    private boolean verify() {
+        String msj = "Campo vacio";
+       return inputValidation.isInputEditTextFilled(textInputEditTextNombre,textInputLayoutNombre,msj);
+
+
+    }
+
+
 }
