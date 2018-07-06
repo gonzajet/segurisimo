@@ -77,6 +77,7 @@ public class NewSinisterActivity extends AppCompatActivity implements View.OnCli
                User user = getUser();
                isOk = true;
                if(user.getId() == 0){
+//
                    setEnableTextInput(true);
                    setTextInputClear();
                }else{
@@ -150,13 +151,13 @@ public class NewSinisterActivity extends AppCompatActivity implements View.OnCli
 
     private boolean verify() {
         String msj = "Campo vacio";
-       return inputValidation.isInputEditTextFilled(textInputEditTextNombre,textInputLayoutNombre,msj) &&
-        inputValidation.isInputEditTextFilled(textInputEditTextTelefono,textInputLayoutTelefono,msj) &&
-        inputValidation.isInputEditTextFilled(textInputEditTextSeguro,textInputLayoutSeguro,msj) &&
-        inputValidation.isInputEditTextFilled(textInputEditTextPatente,textInputLayoutPatente,msj) &&
-        inputValidation.isInputEditTextFilled(textInputEditTextDireccion,textInputLayoutDireccion,msj);
+       boolean t = inputValidation.test(textInputEditTextNombre,textInputLayoutNombre,msj);
+        boolean r = inputValidation.test(textInputEditTextTelefono,textInputLayoutTelefono,msj);
+        boolean e= inputValidation.test(textInputEditTextSeguro,textInputLayoutSeguro,msj);
+        boolean w= inputValidation.test(textInputEditTextPatente,textInputLayoutPatente,msj);
+        boolean q= inputValidation.test(textInputEditTextDireccion,textInputLayoutDireccion,msj);
 
-
+        return t && r && e && w && q;
     }
 
 
