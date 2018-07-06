@@ -506,7 +506,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // updating row
         db.update(TABLE_USER, values, COLUMN_USER_ID + " = ?",
-                new String[]{String.valueOf(user.getId())});
+                new String[]{String.valueOf(user.getUser_id())});
         db.close();
     }
     /**
