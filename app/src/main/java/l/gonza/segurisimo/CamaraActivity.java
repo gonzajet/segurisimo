@@ -117,6 +117,7 @@ public class CamaraActivity extends AppCompatActivity  implements View.OnClickLi
                 databaseHelper.addImage(imangen);
                 Toast.makeText(CamaraActivity.this, mPath, Toast.LENGTH_SHORT).show();
                 startActivity( new Intent(getApplicationContext(),HomeActivity.class));
+                finish();
                 break;
         }
     }

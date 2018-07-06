@@ -128,7 +128,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String fecha = getIntent().getExtras().getString("fecha");
         String test = getIntent().getExtras().getString("test");
 
-        Toast.makeText(this,test + " " + fecha,Toast.LENGTH_LONG).show();
     }
 
 
