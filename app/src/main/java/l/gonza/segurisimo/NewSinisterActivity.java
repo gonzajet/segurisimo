@@ -21,7 +21,7 @@ public class NewSinisterActivity extends AppCompatActivity implements View.OnCli
     private DatabaseHelper databaseHelper;
     private Boolean isOk;
     private InputValidation inputValidation;
-    private TextInputLayout textInputLayoutNombre, textInputLayoutDireccion,textInputLayoutSeguro,textInputLayoutTelefono;
+    private TextInputLayout textInputLayoutNombre, textInputLayoutDireccion,textInputLayoutSeguro,textInputLayoutTelefono,textInputLayoutPatente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,7 +150,11 @@ public class NewSinisterActivity extends AppCompatActivity implements View.OnCli
 
     private boolean verify() {
         String msj = "Campo vacio";
-       return inputValidation.isInputEditTextFilled(textInputEditTextNombre,textInputLayoutNombre,msj);
+       return inputValidation.isInputEditTextFilled(textInputEditTextNombre,textInputLayoutNombre,msj) &&
+        inputValidation.isInputEditTextFilled(textInputEditTextTelefono,textInputLayoutTelefono,msj) &&
+        inputValidation.isInputEditTextFilled(textInputEditTextSeguro,textInputLayoutSeguro,msj) &&
+        inputValidation.isInputEditTextFilled(textInputEditTextPatente,textInputLayoutPatente,msj) &&
+        inputValidation.isInputEditTextFilled(textInputEditTextDireccion,textInputLayoutDireccion,msj);
 
 
     }
