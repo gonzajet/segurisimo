@@ -265,7 +265,18 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
                         .setTitle("EDITAR SINIESTRO");
                 builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-
+//                        textViewNombre.setText(siniestro.getName());
+//                        textViewPatente.setText(siniestro.getPatente());
+//                        textViewDireccion.setText(siniestro.getDireccion());
+//                        textViewPoliza.setText(siniestro.getPoliza());
+//                        textViewEmail.setText(siniestro.getEmail());
+//                        textViewTelefono.setText(siniestro.getTelefono());
+                        siniestro.setName(textViewNombre.getText().toString().trim());
+                        siniestro.setPatente(textViewPatente.getText().toString().trim());
+                        siniestro.setDireccion(textViewDireccion.getText().toString().trim());
+                        siniestro.setPoliza(textViewPoliza.getText().toString().trim());
+                        siniestro.setEmail(textViewEmail.getText().toString().trim());
+                        siniestro.setTelefono(textViewTelefono.getText().toString().trim());
                         databaseHelper.updateUserSiniestro( siniestro);
                         Toast.makeText(getContext(),"editado",Toast.LENGTH_LONG).show();
                         interfaceComunicaFragment.volverLista();
