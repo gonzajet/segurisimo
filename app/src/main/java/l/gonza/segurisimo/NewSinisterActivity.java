@@ -154,10 +154,9 @@ public class NewSinisterActivity extends AppCompatActivity implements View.OnCli
        boolean t = inputValidation.test(textInputEditTextNombre,textInputLayoutNombre,msj);
         boolean r = inputValidation.test(textInputEditTextTelefono,textInputLayoutTelefono,msj);
         boolean e= inputValidation.test(textInputEditTextSeguro,textInputLayoutSeguro,msj);
-        boolean w= inputValidation.test(textInputEditTextPatente,textInputLayoutPatente,msj);
         boolean q= inputValidation.test(textInputEditTextDireccion,textInputLayoutDireccion,msj);
 
-        return t && r && e && w && q;
+        return t && r && e && q;
     }
 
 
