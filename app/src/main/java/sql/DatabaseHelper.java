@@ -487,6 +487,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+
+    /**
+     * This method to update user record
+     *
+     * @param user
+     */
+    public void updateUserSiniestro(UserSiniestro user) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_USER_NAME, user.getName());
+        values.put(COLUMN_USER_PATENTE, user.getPatente());
+        values.put(COLUMN_USER_POLIZA, user.getPoliza());
+        values.put(COLUMN_USER_TELEFONO, user.getTelefono());
+        values.put(COLUMN_USER_DIRECCION, user.getDireccion());
+        values.put(COLUMN_USER_EMAIL, user.getEmail());
+
+        // updating row
+        db.update(TABLE_USER, values, COLUMN_USER_ID + " = ?",
+                new String[]{String.valueOf(user.getId())});
+        db.close();
+    }
     /**
      * This method is to delete user record
      *

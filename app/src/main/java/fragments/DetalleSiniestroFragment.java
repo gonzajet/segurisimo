@@ -67,6 +67,9 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
 
     UserSiniestro siniestro;
 
+    AlertDialog.Builder builder;
+    AlertDialog dialog;
+
     TextView textViewFechaYHora,textViewNombre,textViewPatente,textViewDireccion,textViewPoliza,textViewEmail,textViewTelefono;
     ImageView imageViewAccidente;
     AppCompatButton appCompatButtonEliminar,appCompatButtonEditar;
@@ -151,10 +154,13 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
         textViewTelefono = vista.findViewById(R.id.textViewTelefono);
         imageViewAccidente = vista.findViewById(R.id.imageViewAccidente);
 
+        textViewNombre.setEnabled(true);
+
         appCompatButtonEditar = vista.findViewById(R.id.appCompatButtonEditar);
         appCompatButtonEliminar = vista.findViewById(R.id.appCompatButtonEliminar);
 
         appCompatButtonEliminar.setOnClickListener(this);
+        appCompatButtonEditar.setOnClickListener(this);
         registerForContextMenu(imageViewAccidente);
         databaseHelper = new DatabaseHelper(getContext());
 
@@ -232,7 +238,8 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
         switch (v.getId()){
             case R.id.appCompatButtonEliminar:
                 Toast.makeText(getContext(),"hola",Toast.LENGTH_LONG).show();
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+                builder = new AlertDialog.Builder(getContext());
                 builder.setMessage("Esta seguro que desea eliminar este siniestro")
                         .setTitle("ELIMINAR SINIESTRO");
                 builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
@@ -247,7 +254,28 @@ public class DetalleSiniestroFragment extends Fragment implements OnMapReadyCall
                             public void onClick(DialogInterface dialog, int id) {
                             }
                         });
-                AlertDialog dialog = builder.create();
+                dialog = builder.create();
+                dialog.show();
+                break;
+            case R.id.appCompatButtonEditar:
+                Toast.makeText(getContext(), "hola",Toast.LENGTH_LONG).show();
+
+                builder = new AlertDialog.Builder(getContext());
+                builder.setMessage("Esta seguro que desea editar este siniestro")
+                        .setTitle("EDITAR SINIESTRO");
+                builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        databaseHelper.updateUserSiniestro( siniestro);
+                        Toast.makeText(getContext(),"editado",Toast.LENGTH_LONG).show();
+                        interfaceComunicaFragment.volverLista();
+                    }
+                });
+                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+                dialog = builder.create();
                 dialog.show();
                 break;
         }
